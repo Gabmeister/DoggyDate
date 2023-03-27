@@ -2,7 +2,7 @@ package com.example.doggydateapp;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+//import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,7 +14,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText nameEditText;
     private EditText emailEditText;
     private EditText passwordEditText;
-    private Button registerButton;
+    //private Button registerButton;
     private TextView loginTextView;
 
     @Override
@@ -32,12 +32,14 @@ public class RegisterActivity extends AppCompatActivity {
 
          */
 
+        /*
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //code here to handle register button click..
             }
         });
+        */
 
         loginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
