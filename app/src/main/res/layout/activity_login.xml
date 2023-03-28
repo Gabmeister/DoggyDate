@@ -78,11 +78,11 @@
         app:layout_constraintTop_toBottomOf="@+id/inputpass" />
 
     <Button
-        android:id="@+id/buttonlogin"
+        android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/buttonbg"
+
         android:text="Login"
         app:iconTint="@color/Red"
         app:layout_constraintEnd_toEndOf="@+id/inputpass"
@@ -100,19 +100,28 @@
         app:layout_constraintStart_toStartOf="@+id/buttonlogin"
         app:layout_constraintTop_toBottomOf="@+id/buttonlogin">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Don't have an Account? "
-            android:textColor="@color/Black"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textColor="@color/purple_500"/>
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/NoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="26dp"
+        android:text="Don't have an Account? "
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="Sign Up"
+        android:textColor="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/NoAccount"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

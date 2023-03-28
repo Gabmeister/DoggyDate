@@ -1,5 +1,6 @@
 package com.example.doggydateapp;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
 
     //placeholder names.. change if needed
     private EditText emailEditText;
@@ -21,14 +22,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       /* code for later... placeholder names
 
-        emailEditText = findViewById(R.id.email_edit_text);
-        passwordEditText = findViewById(R.id.password_edit_text);
+
+        emailEditText = findViewById(R.id.inputuser);
+        passwordEditText = findViewById(R.id.inputpass);
         loginButton = findViewById(R.id.login_button);
-        registerTextView = findViewById(R.id.register_text_view);
+        registerTextView = findViewById(R.id.registerTextView);
 
-        */
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
