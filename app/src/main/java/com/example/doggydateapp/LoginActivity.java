@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class LoginActivity extends Activity {
 
     //placeholder names.. change if needed
@@ -29,7 +27,7 @@ public class LoginActivity extends Activity {
 
 
         emailEditText = findViewById(R.id.inputuser);
-        passwordEditText = findViewById(R.id.inputpass);
+        passwordEditText = findViewById(R.id.inputemail);
         loginButton = findViewById(R.id.login_button);
         registerTextView = findViewById(R.id.registerTextView);
 
@@ -63,6 +61,8 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //code here for opening registration activity...
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

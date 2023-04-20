@@ -58,7 +58,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputpass" />
+        app:layout_constraintTop_toBottomOf="@+id/inputemail" />
 
     <Button
         android:id="@+id/login_button"
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     <EditText
-        android:id="@+id/inputpass"
+        android:id="@+id/inputemail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
