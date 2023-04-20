@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.SQLException;
+
 public class RegisterActivity extends AppCompatActivity {
 
     //placeholder names.. change if needed
@@ -49,28 +51,38 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (uname.trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "enter username", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Enter username", Toast.LENGTH_LONG).show();
                 }
                 else if (email.trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "enter email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Enter email", Toast.LENGTH_LONG).show();
+                }
+                else if (!email.trim().contains("@"))
+                {
+                    Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_LONG).show();
                 }
                 else if (pword.trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "enter password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Enter password", Toast.LENGTH_LONG).show();
                 }
                 else if (conPWord.trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "confirm password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Confirm password", Toast.LENGTH_LONG).show();
                 }
 
                 else if (!pword.trim().equals(conPWord.trim()))
                 {
-                    Toast.makeText(getApplicationContext(), "password and confirm password dont match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Password and confirm password don't match", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "alles gut ja", Toast.LENGTH_LONG).show();
+                    UserDao userDao = new UserDao();
+                    try {
+                        userDao.registerUser(uname, pword, email);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -80,6 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //code here to open login activity...
+                finish();
             }
         });
     }

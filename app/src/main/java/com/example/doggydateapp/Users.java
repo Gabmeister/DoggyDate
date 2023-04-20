@@ -4,19 +4,17 @@ public class Users {
 
     private int _id;
     private String name;
-    private String username;
     private String password;
     private String email;
-    private int age;
+    private String age;
     private String gender;
     private String sexuality;
     private String location;
 
 
-    public Users(int _id, String name, String username, String password, String email, int age, String gender, String sexuality, String location) {
+    public Users(int _id, String name, String password, String email, String age, String gender, String sexuality, String location) {
         this._id = _id;
         this.name = name;
-        this.username = username;
         this.password = password;
         this.email = email;
         this.age = age;
@@ -41,14 +39,6 @@ public class Users {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -65,11 +55,11 @@ public class Users {
         this.email = email;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
