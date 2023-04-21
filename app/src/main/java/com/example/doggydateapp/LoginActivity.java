@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.SQLException;
+
 public class LoginActivity extends Activity {
 
     //placeholder names.. change if needed
@@ -42,17 +44,35 @@ public class LoginActivity extends Activity {
 
                 if (uname.trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "enter username", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Enter email", Toast.LENGTH_LONG).show();
                 }
                 else if (pword.trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "enter password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Enter password", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "cool", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    UserDao userDao = new UserDao();
+                    try {
+                        Users user = userDao.findUserByUsernamePassword(uname, pword);
+
+//                        if (!user.getEmail().trim().equals(uname))
+//                        {
+//                            Toast.makeText(getApplicationContext(), "No users registered under this email", Toast.LENGTH_LONG).show();
+//                        }
+
+                        if (!user.getEmail().trim().equals("") && !user.getPassword().trim().equals(""))
+                        {
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("userEmail", user.getEmail());
+                            intent.putExtra("userPW", user.getPassword());
+                            startActivity(intent);
+                        }
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });

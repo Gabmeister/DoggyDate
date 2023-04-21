@@ -26,7 +26,7 @@ public class UserDao extends Dbconnector {
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                int userId = rs.getInt("UserID");
+                String userId = rs.getString("UserID");
                 String uName = rs.getString("Name");
                 String password = rs.getString("Password");
                 String uEmail = rs.getString("Email");
@@ -61,21 +61,21 @@ public class UserDao extends Dbconnector {
         try {
             con = this.conToDB();
 
-            String query = "SELECT * FROM public.\"Users\" WHERE EMAIL = ? AND PASSWORD = ?";
+            String query = "SELECT * FROM public.\"Users\" WHERE \"Email\" = ? AND \"Password\" = ?";
             ps = con.prepareStatement(query);
             ps.setString(1, email);
             ps.setString(2, pword);
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                int userId = rs.getInt("ID");
-                String uEmail = rs.getString("EMAIL");
-                String password = rs.getString("PASSWORD");
-                String name = rs.getString("NAME");
-                String age = rs.getString("AGE");
-                String gender = rs.getString("GENDER");
-                String sexuality = rs.getString("SEXUALITY");
-                String location = rs.getString("LOCATION");
+                String userId = rs.getString("UserID");
+                String uEmail = rs.getString("Email");
+                String password = rs.getString("Password");
+                String name = rs.getString("Name");
+                String age = rs.getString("Age");
+                String gender = rs.getString("Gender");
+                String sexuality = rs.getString("Sexuality");
+                String location = rs.getString("Location");
 
                 u = new Users(userId, name, password, uEmail, age, gender, sexuality, location);
             }

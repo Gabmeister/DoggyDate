@@ -2,7 +2,7 @@ package com.example.doggydateapp;
 
 public class Users {
 
-    private int _id;
+    private String _id;
     private String name;
     private String password;
     private String email;
@@ -12,7 +12,7 @@ public class Users {
     private String location;
 
 
-    public Users(int _id, String name, String password, String email, String age, String gender, String sexuality, String location) {
+    public Users(String _id, String name, String password, String email, String age, String gender, String sexuality, String location) {
         this._id = _id;
         this.name = name;
         this.password = password;
@@ -23,11 +23,11 @@ public class Users {
         this.location = location;
     }
 
-    public int getID() {
+    public String getID() {
         return _id;
     }
 
-    public void setID(int _id) {
+    public void setID(String _id) {
         this._id = _id;
     }
 

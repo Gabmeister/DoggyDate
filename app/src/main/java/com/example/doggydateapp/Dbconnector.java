@@ -12,12 +12,12 @@ import java.sql.SQLException;
 
 public class Dbconnector {
 
-    private static String ip = "ec2-3-248-141-201.eu-west-1.compute.amazonaws.com";// this is the host ip that your data base exists on you can use 10.0.2.2 for local host                                                    found on your pc. use if config for windows to find the ip if the database exists on                                                    your pc
+    private static String ip = "ec2-34-252-169-131.eu-west-1.compute.amazonaws.com";// this is the host ip that your data base exists on you can use 10.0.2.2 for local host                                                    found on your pc. use if config for windows to find the ip if the database exists on                                                    your pc
     private static String port = "5432";// the port sql server runs on
     private static String Classes = "org.postgresql.Driver";// the driver that is required for this connection use                                                                           "org.postgresql.Driver" for connecting to postgresql
-    private static String database = "da2bf9sekotqre";// the data base name
-    private static String username = "jvqpcueswclwyk";// the user name
-    private static String password = "be50bd1dcb2c6caa51dea47522f77367b6ad445358ef8d2de6b71ce318d96a5a";// the password
+    private static String database = "dfktl2jjnuovra"; // the data base name
+    private static String username = "gtujllzdpnkgmt";// the user name
+    private static String password = "4e7120324baa7dc4744b1b2ab3d49e1ff0fade6c9cee10b4cd9987ce0b760fea";// the password
     private static String url = "jdbc:postgresql://"+ip+":"+port+"/"+database; // the connection url string
 
     private Connection connection = null;

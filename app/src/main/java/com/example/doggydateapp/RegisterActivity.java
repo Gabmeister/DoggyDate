@@ -76,14 +76,28 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "alles gut ja", Toast.LENGTH_LONG).show();
+
                     UserDao userDao = new UserDao();
                     try {
-                        userDao.registerUser(uname, pword, email);
+                        Users checkUser = userDao.findUserByUsernamePassword(email, pword);
+                        //Toast.makeText(getApplicationContext(), checkUser.getEmail(), Toast.LENGTH_LONG).show();
+                        if (checkUser.getEmail().trim().equals(email)) {
+                            Toast.makeText(getApplicationContext(), "A user with this email already exists", Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            try {
+                                userDao.registerUser(uname, pword, email);
+
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 }
+                //finish();
             }
         });
 
