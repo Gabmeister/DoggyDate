@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-        inputUser = findViewById(R.id.inputuser);
+        inputUser = findViewById(R.id.inputname);
         inputEmail = findViewById(R.id.inputemail);
         inputPass = findViewById(R.id.inputPassword);
         inputConfirmPass = findViewById(R.id.insertConfirmPassword);

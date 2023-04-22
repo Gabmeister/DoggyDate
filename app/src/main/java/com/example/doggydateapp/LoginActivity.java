@@ -19,8 +19,6 @@ public class LoginActivity extends Activity {
     private Button loginButton;
     private TextView registerTextView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +26,8 @@ public class LoginActivity extends Activity {
 
 
 
-        emailEditText = findViewById(R.id.inputuser);
-        passwordEditText = findViewById(R.id.inputemail);
+        emailEditText = findViewById(R.id.inputemail);
+        passwordEditText = findViewById(R.id.inputpassword);
         loginButton = findViewById(R.id.login_button);
         registerTextView = findViewById(R.id.registerTextView);
 
