@@ -24,18 +24,22 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".Splashscreen"
-                android:exported="true"
-                android:theme="@style/SplashScreen">
-
+<!--        <activity android:name=".Splashscreen"-->
+<!--                android:exported="true"-->
+<!--                android:theme="@style/SplashScreen">-->
+<!--        </activity>-->
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".CreateUserProfile"></activity>
+        <activity android:name=".CreateDog"></activity>
+        <activity android:name=".DisplayDog"></activity>
+        <activity android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

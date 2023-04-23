@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">DoggyDateApp</string>
+    <string name="app_name">DoggyDate</string>
+
+    <string-array name="dogSize">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="dogTemperament">
+        <item>Aggressive</item>
+        <item>Passive</item>
+        <item>Neutral</item>
+    </string-array>
+
+    <string-array name="interests">
+        <item>Sports</item>
+        <item>Music</item>
+        <item>Politics</item>
+        <item>Drinking</item>
+        <item>Food</item>
+        <item>Movies</item>
+        <item>Dancing</item>
+    </string-array>
 </resources>
