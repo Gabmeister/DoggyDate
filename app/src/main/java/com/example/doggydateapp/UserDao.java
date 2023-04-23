@@ -1,5 +1,11 @@
 package com.example.doggydateapp;
 
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -97,6 +103,43 @@ public class UserDao extends Dbconnector {
             }
         }
         return u;     // u may be null
+    }
+
+    public void uploadImage(String table, String column, File file, String user) throws SQLException, FileNotFoundException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Users u = null;
+        FileInputStream fis = new FileInputStream(file);
+        try {
+            con = this.conToDB();
+
+            String query = "UPDATE ? SET ? = ? +  WHERE EMAIL = ?;";
+            ps = con.prepareStatement(query);
+            ps.setString(1, table);
+            ps.setString(2, column);
+            ps.setBinaryStream(3, fis, (int)file.length());
+            ps.setString(4, user);
+            ps.executeQuery(query);
+            Log.i("fileupload", query);
+
+        } catch (SQLException e) {
+            throw new SQLException("uploadImage " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                throw new SQLException("uploadImage" + e.getMessage());
+            }
+        }
     }
 
 }
