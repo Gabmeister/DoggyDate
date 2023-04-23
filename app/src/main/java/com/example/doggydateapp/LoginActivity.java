@@ -56,18 +56,19 @@ public class LoginActivity extends Activity {
                     try {
                         Users user = userDao.findUserByUsernamePassword(uname, pword);
 
-//                        if (!user.getEmail().trim().equals(uname))
-//                        {
-//                            Toast.makeText(getApplicationContext(), "No users registered under this email", Toast.LENGTH_LONG).show();
-//                        }
-
-                        if (!user.getEmail().trim().equals("") && !user.getPassword().trim().equals(""))
+                        try {
+                            if (!user.getEmail().trim().equals("") && !user.getPassword().trim().equals(""))
+                            {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("userEmail", user.getEmail());
+                                intent.putExtra("userPW", user.getPassword());
+                                startActivity(intent);
+                            }
+                        } catch (NullPointerException e)
                         {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra("userEmail", user.getEmail());
-                            intent.putExtra("userPW", user.getPassword());
-                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "No users registered under this email", Toast.LENGTH_LONG).show();
                         }
+
 
                     } catch (SQLException e) {
                         e.printStackTrace();
