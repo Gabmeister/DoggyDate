@@ -25,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = getIntent();
+                String user = i.getStringExtra("userEmail");
+                Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
+                intent.putExtra("userEmail", user);
+                startActivity(intent);
             }
         });
 

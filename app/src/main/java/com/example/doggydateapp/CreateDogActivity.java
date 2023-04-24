@@ -1,5 +1,9 @@
 package com.example.doggydateapp;
 
+
+
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,33 +16,49 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.SQLException;
 
-public class userActivity2 extends AppCompatActivity {
+public class CreateDogActivity extends Activity {
 
     //placeholder names.. change if needed
-    private EditText inputBio;
-    private EditText inputEducation;
-    private EditText inputJob;
+    private EditText inputDogName;
+    private EditText inputDogAge;
+    private EditText inputDogSize;
+    private EditText inputDogTemperament;
+    private EditText inputDogBio;
+    private EditText inputDogBreed;
     private TextView loginTextView;
-    private Button createButton;
+    private Button continueButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user2);
-        inputBio = findViewById(R.id.inputBio);
-        inputJob = findViewById(R.id.inputJob);
-        inputEducation = findViewById(R.id.inputEducation);
+        setContentView(R.layout.activity_create_dog);
+
+        inputDogName = findViewById(R.id.inputDogName);
+        inputDogAge = findViewById(R.id.inputDogAge);
+        inputDogSize = findViewById(R.id.inputDogSize);
+        inputDogTemperament= findViewById(R.id.inputDogTemperament);
+        inputDogBio= findViewById(R.id.inputDogBio);
+        inputDogBreed= findViewById(R.id.inputDogBreed);
         loginTextView = findViewById(R.id.loginText);
-        createButton = findViewById(R.id.createButton);
+        continueButton = findViewById(R.id.continueButton);
 
 
-//        registerButton.setOnClickListener(new View.OnClickListener() {
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //code here for opening registration activity...
+                finish();
+            }
+        });
+
+
+//        createButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                //code here to handle register button click..
 //
 //                String age = String.valueOf(inputUser.getText());
-//                String gender = String.valueOf(inputPass.getText());
+//                String gender  = String.valueOf(inputPass.getText());
 //                String sexuality = String.valueOf(inputConfirmPass.getText());
 //                String location = String.valueOf(inputEmail.getText());
 //                String interests = String.valueOf(inputEmail.getText());
@@ -48,21 +68,39 @@ public class userActivity2 extends AppCompatActivity {
 //
 //                // Log.i("register", uname+", "+pword+", "+conPWord+", "+email);
 //
-//                if (age.trim().equals("")) {
+//                if (age.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter age", Toast.LENGTH_LONG).show();
-//                } else if (gender.trim().equals("")) {
+//                }
+//                else if (gender.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter sexuality", Toast.LENGTH_LONG).show();
-//                } else if (sexuality.trim().equals("")) {
+//                }
+//                else if (sexuality.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter location ", Toast.LENGTH_LONG).show();
-//                } else if (location.trim().equals("")) {
+//                }
+//                else if (location.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter interests", Toast.LENGTH_LONG).show();
-//                } else if (interests.trim().equals("")) {
+//                }
+//                else if (interests.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter a biography", Toast.LENGTH_LONG).show();
-//                } else if (bio.trim().equals("")) {
+//                }
+//
+//                else if (bio.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter education", Toast.LENGTH_LONG).show();
-//                } else if (education.trim().equals("")) {
+//                }
+//
+//                else if (education.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Enter occupation", Toast.LENGTH_LONG).show();
-//                } else if (job.trim().equals("")) {
+//                }
+//
+//                else if (job.trim().equals(""))
+//                {
 //                    Toast.makeText(getApplicationContext(), "Password and confirm password don't match", Toast.LENGTH_LONG).show();
 //                }
 //                else
@@ -90,15 +128,15 @@ public class userActivity2 extends AppCompatActivity {
 //                }
 //                //finish();
 //            }
-//        });
+//      });
 
 
-                loginTextView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //code here to open login activity...
-                        finish();
-                    }
-                });
+        loginTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //code here to open login activity...
+                finish();
             }
-        }
+        });
+    }
+}

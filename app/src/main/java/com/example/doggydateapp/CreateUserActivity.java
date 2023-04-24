@@ -2,6 +2,7 @@ package com.example.doggydateapp;
 
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,29 +16,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.SQLException;
 
-public class createDog extends AppCompatActivity {
+public class CreateUserActivity extends Activity {
 
     //placeholder names.. change if needed
-    private EditText inputDogName;
-    private EditText inputDogAge;
-    private EditText inputDogSize;
-    private EditText inputDogTemperament;
-    private EditText inputDogBio;
-    private EditText inputDogBreed;
+    private EditText inputAge;
+    private EditText inputGender;
+    private EditText inputSexuality;
+    private EditText inputLocation;
+    private EditText inputInterests;
     private TextView loginTextView;
     private Button continueButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_dog);
+        setContentView(R.layout.user);
 
-        inputDogName = findViewById(R.id.inputDogName);
-        inputDogAge = findViewById(R.id.inputDogAge);
-        inputDogSize = findViewById(R.id.inputDogSize);
-        inputDogTemperament= findViewById(R.id.inputDogTemperament);
-        inputDogBio= findViewById(R.id.inputDogBio);
-        inputDogBreed= findViewById(R.id.inputDogBreed);
+
+        inputAge = findViewById(R.id.inputAge);
+        inputGender = findViewById(R.id.inputGender);
+        inputSexuality = findViewById(R.id.inputSexuality);
+        inputLocation = findViewById(R.id.inputLocation);
+        inputInterests = findViewById(R.id.inputInterests);
         loginTextView = findViewById(R.id.loginText);
         continueButton = findViewById(R.id.continueButton);
 
@@ -46,7 +46,10 @@ public class createDog extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //code here for opening registration activity...
-                Intent intent = new Intent(createDog.this, userActivity2.class);
+                Intent i = getIntent();
+                String user = i.getStringExtra("userEmail");
+                Intent intent = new Intent(CreateUserActivity.this, CreateUserContinued.class);
+                intent.putExtra("userEmail", user);
                 startActivity(intent);
             }
         });
@@ -139,4 +142,4 @@ public class createDog extends AppCompatActivity {
             }
         });
     }
-}
+            }

@@ -17,7 +17,7 @@
         android:theme="@style/Theme.DoggyDateApp"
         tools:targetApi="31">
         <activity
-            android:name=".createDog"
+            android:name=".CreateDogActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -29,7 +29,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".userActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +38,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".userActivity2" />
+        <activity android:name=".CreateUserActivity" />
+        <activity android:name=".CreateUserContinued"></activity>
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest>
