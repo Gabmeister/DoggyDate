@@ -3,7 +3,6 @@ package com.example.doggydateapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         likeButton = findViewById(R.id.like_button);
         dislikeButton = findViewById(R.id.dislike_button);
 
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //like button code
 
             }
         });
@@ -53,6 +52,4 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
     }
-
-
 }

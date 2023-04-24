@@ -24,17 +24,17 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <EditText
-        android:id="@+id/inputDogName"
+        android:id="@+id/inputAge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/inputbg"
-        android:drawableLeft="@drawable/ic_baseline_pets_24"
+        android:drawableLeft="@drawable/ic_person"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Dog Name"
+        android:hint="Age"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="20dp"
@@ -48,15 +48,15 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/inputDogAge"
+        android:id="@+id/inputGender"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/inputbg"
-        android:drawableLeft="@drawable/ic_baseline_exposure_24"
+        android:drawableLeft="@drawable/ic_baseline_gender_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Dog Age"
+        android:hint="Gender"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="20dp"
@@ -65,44 +65,21 @@
         android:paddingBottom="10dp"
         android:textColor="@color/black"
         android:textColorHint="#432929"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogName"
+        app:layout_constraintEnd_toEndOf="@+id/inputAge"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputDogName"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogName" />
+        app:layout_constraintStart_toStartOf="@+id/inputAge"
+        app:layout_constraintTop_toBottomOf="@+id/inputAge" />
 
     <EditText
-        android:id="@+id/inputDogSize"
+        android:id="@+id/inputSexuality"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/inputbg"
-        android:drawableLeft="@drawable/ic_baseline_size_24"
+        android:drawableLeft="@drawable/ic_baseline_person_search_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Dog Size"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#432929"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogAge"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputDogAge"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogAge" />
-
-    <EditText
-        android:id="@+id/inputDogTemperament"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/inputbg"
-        android:drawableLeft="@drawable/ic_baseline_tag_faces_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Dog Temp"
+        android:hint="Sexuality"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="20dp"
@@ -111,41 +88,19 @@
         android:paddingBottom="10dp"
         android:textColorHint="#432929"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogSize"
-        app:layout_constraintStart_toStartOf="@+id/inputDogSize"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogSize" />
+        app:layout_constraintEnd_toEndOf="@+id/inputGender"
+        app:layout_constraintStart_toStartOf="@+id/inputGender"
+        app:layout_constraintTop_toBottomOf="@+id/inputGender" />
 
     <EditText
-        android:id="@+id/inputDogBio"
+        android:id="@+id/inputLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/inputbg"
-        android:drawableLeft="@drawable/ic_baseline_create_24"
+        android:drawableLeft="@drawable/ic_baseline_add_location_24"
         android:drawablePadding="10dp"
-        android:hint="Dog Bio..."
-        android:inputType="textMultiLine|textPersonName"
-        android:maxLines="20"
-        android:minHeight="48dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColorHint="#432929"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogTemperament"
-        app:layout_constraintStart_toStartOf="@+id/inputDogTemperament"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogTemperament" />
-
-    <EditText
-        android:id="@+id/inputDogBreed"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/inputbg"
-        android:drawableLeft="@drawable/ic_baseline_manage_search_24"
-        android:drawablePadding="10dp"
-        android:hint="Dog Breed"
+        android:hint="Location"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
@@ -155,9 +110,31 @@
         android:paddingBottom="10dp"
         android:textColorHint="#432929"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogBio"
-        app:layout_constraintStart_toStartOf="@+id/inputDogBio"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogBio" />
+        app:layout_constraintEnd_toEndOf="@+id/inputSexuality"
+        app:layout_constraintStart_toStartOf="@+id/inputSexuality"
+        app:layout_constraintTop_toBottomOf="@+id/inputSexuality" />
+
+    <EditText
+        android:id="@+id/inputInterests"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/inputbg"
+        android:drawableLeft="@drawable/ic_baseline_interests_24"
+        android:drawablePadding="10dp"
+        android:hint="Interests"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#432929"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/inputLocation"
+        app:layout_constraintStart_toStartOf="@+id/inputLocation"
+        app:layout_constraintTop_toBottomOf="@+id/inputLocation" />
 
     <Button
         android:id="@+id/continueButton"
@@ -165,11 +142,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
 
-        android:text="Create"
+        android:text="Continue"
         app:iconTint="@color/Red"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogBreed"
-        app:layout_constraintStart_toStartOf="@+id/inputDogBreed"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogBreed" />
+        app:layout_constraintEnd_toEndOf="@+id/inputInterests"
+        app:layout_constraintStart_toStartOf="@+id/inputInterests"
+        app:layout_constraintTop_toBottomOf="@+id/inputInterests" />
 
     <TextView
         android:id="@+id/loginText"
