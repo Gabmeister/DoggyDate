@@ -38,7 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="291dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/like_button"
         android:text=""
         android:textSize="30sp" />
@@ -50,7 +50,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="291dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/dislike_button"
         android:text=""
         android:textSize="30sp" />
