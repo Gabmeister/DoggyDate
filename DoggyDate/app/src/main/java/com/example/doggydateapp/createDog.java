@@ -18,6 +18,7 @@ import java.sql.SQLException;
 public class createDog extends AppCompatActivity {
 
     //placeholder names.. change if needed
+    private EditText inputDogName;
     private EditText inputDogAge;
     private EditText inputDogSize;
     private EditText inputDogTemperament;
@@ -31,7 +32,7 @@ public class createDog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_dog);
 
-
+        inputDogName = findViewById(R.id.inputDogName);
         inputDogAge = findViewById(R.id.inputDogAge);
         inputDogSize = findViewById(R.id.inputDogSize);
         inputDogTemperament= findViewById(R.id.inputDogTemperament);
