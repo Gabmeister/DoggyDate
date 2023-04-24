@@ -21,14 +21,14 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.005" />
 
     <EditText
         android:id="@+id/inputDogName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/inputbg"
         android:drawableLeft="@drawable/ic_baseline_pets_24"
@@ -60,15 +60,15 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="20dp"
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:textColor="@color/black"
         android:textColorHint="#432929"
-        app:layout_constraintEnd_toEndOf="@+id/inputDogName"
+        app:layout_constraintEnd_toEndOf="@+id/uploadButton"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputDogName"
-        app:layout_constraintTop_toBottomOf="@+id/inputDogName" />
+        app:layout_constraintStart_toStartOf="@+id/uploadButton"
+        app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
 
     <EditText
         android:id="@+id/inputDogSize"
@@ -163,13 +163,25 @@
         android:id="@+id/continueButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
 
         android:text="Create"
         app:iconTint="@color/Red"
         app:layout_constraintEnd_toEndOf="@+id/inputDogBreed"
         app:layout_constraintStart_toStartOf="@+id/inputDogBreed"
         app:layout_constraintTop_toBottomOf="@+id/inputDogBreed" />
+
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:text="Upload Photo"
+        app:iconTint="@color/Red"
+        app:layout_constraintEnd_toEndOf="@+id/inputDogName"
+        app:layout_constraintStart_toStartOf="@+id/inputDogName"
+        app:layout_constraintTop_toBottomOf="@+id/inputDogName" />
 
     <TextView
         android:id="@+id/loginText"
