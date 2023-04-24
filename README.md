@@ -1,7 +1,7 @@
 # DoggyDate
 Global Classroom module
 Team 1 - DoggyDate Dating App
-![DoggyDate](https://pasteboard.co/D5rNbfkM2a8y.png)
+![doggydate](https://user-images.githubusercontent.com/98482460/234088679-a0321eeb-26a6-4157-a98f-7ec21d0b196f.png)
 
 “Dogs make everything a much better experience, and dating is one of them.”
 
