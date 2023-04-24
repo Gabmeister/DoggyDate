@@ -105,23 +105,24 @@ public class UserDao extends Dbconnector {
         return u;     // u may be null
     }
 
-    public void uploadImage(String table, String column, File file, String user) throws SQLException, FileNotFoundException {
+    public void uploadUserImage(String file, String user) throws SQLException, FileNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Users u = null;
-        FileInputStream fis = new FileInputStream(file);
+
+
         try {
             con = this.conToDB();
 
-            String query = "UPDATE ? SET ? = ? +  WHERE EMAIL = ?;";
+            FileInputStream fis = new FileInputStream(file);
+            String query = "UPDATE public.\"Users\" SET \"profimage1\" = ? WHERE \"Email\" = ?;";
             ps = con.prepareStatement(query);
-            ps.setString(1, table);
-            ps.setString(2, column);
-            ps.setBinaryStream(3, fis, (int)file.length());
-            ps.setString(4, user);
-            ps.executeQuery(query);
-            Log.i("fileupload", query);
+            ps.setBinaryStream(1, fis, file.length());
+            ps.setString(2, user);
+            Log.i("fileupload", String.valueOf(ps));
+            ps.executeQuery();
+
 
         } catch (SQLException e) {
             throw new SQLException("uploadImage " + e.getMessage());
@@ -136,6 +137,7 @@ public class UserDao extends Dbconnector {
                 if (con != null) {
                     freeConnection(con);
                 }
+
             } catch (SQLException e) {
                 throw new SQLException("uploadImage" + e.getMessage());
             }
