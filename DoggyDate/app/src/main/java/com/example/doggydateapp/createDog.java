@@ -20,7 +20,7 @@ public class createDog extends AppCompatActivity {
     //placeholder names.. change if needed
     private EditText inputDogAge;
     private EditText inputDogSize;
-    private EditText inputDogTemperament
+    private EditText inputDogTemperament;
     private EditText inputDogBio;
     private EditText inputDogBreed;
     private TextView loginTextView;
@@ -45,7 +45,7 @@ public class createDog extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //code here for opening registration activity...
-                Intent intent = new Intent(userActivity.this, userActivity2.class);
+                Intent intent = new Intent(createDog.this, userActivity2.class);
                 startActivity(intent);
             }
         });
