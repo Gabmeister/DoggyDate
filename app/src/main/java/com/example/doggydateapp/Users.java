@@ -10,9 +10,9 @@ public class Users {
     private String gender;
     private String sexuality;
     private String location;
+    private byte[] profilePicture;
 
-
-    public Users(String _id, String name, String password, String email, String age, String gender, String sexuality, String location) {
+    public Users(String _id, String name, String password, String email, String age, String gender, String sexuality, String location, byte[] profilePicture) {
         this._id = _id;
         this.name = name;
         this.password = password;
@@ -21,13 +21,14 @@ public class Users {
         this.gender = gender;
         this.sexuality = sexuality;
         this.location = location;
+        this.profilePicture = profilePicture;
     }
 
-    public String getID() {
+    public String get_id() {
         return _id;
     }
 
-    public void setID(String _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
@@ -85,5 +86,13 @@ public class Users {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
     }
 }

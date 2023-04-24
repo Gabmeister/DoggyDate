@@ -37,7 +37,7 @@ public class UserDao extends Dbconnector {
                 String password = rs.getString("Password");
                 String uEmail = rs.getString("Email");
 
-                u = new Users(userId, uName, password, uEmail, "", "", "", "");
+                u = new Users(userId, uName, password, uEmail, "", "", "", "", null);
             }
         } catch (SQLException e) {
             throw new SQLException("registerUser " + e.getMessage());
@@ -74,6 +74,46 @@ public class UserDao extends Dbconnector {
 
             rs = ps.executeQuery();
             if (rs.next()) {
+                String uEmail = rs.getString("Email");
+                String password = rs.getString("Password");
+
+                u = new Users(null, null, password, uEmail, null, null, null, null, null);
+            }
+        } catch (SQLException e) {
+            throw new SQLException("findUserByUsernamePassword " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                throw new SQLException("findUserByUsernamePassword" + e.getMessage());
+            }
+        }
+        return u;     // u may be null
+    }
+
+    public Users retrieveUserData(String email) throws SQLException {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Users u = null;
+        try {
+            con = this.conToDB();
+
+            String query = "SELECT * FROM public.\"Users\" WHERE \"Email\" = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1, email);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 String userId = rs.getString("UserID");
                 String uEmail = rs.getString("Email");
                 String password = rs.getString("Password");
@@ -82,8 +122,10 @@ public class UserDao extends Dbconnector {
                 String gender = rs.getString("Gender");
                 String sexuality = rs.getString("Sexuality");
                 String location = rs.getString("Location");
+                byte[] picture = rs.getBytes("profimage1");
 
-                u = new Users(userId, name, password, uEmail, age, gender, sexuality, location);
+                u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, picture);
+
             }
         } catch (SQLException e) {
             throw new SQLException("findUserByUsernamePassword " + e.getMessage());

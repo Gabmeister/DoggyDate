@@ -29,9 +29,6 @@
 <!--                android:theme="@style/SplashScreen">-->
 <!--        </activity>-->
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".CreateUserProfile"></activity>
-        <activity android:name=".CreateDog"></activity>
-        <activity android:name=".DisplayDog"></activity>
         <activity android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
