@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button likeButton;
     private Button dislikeButton;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +26,7 @@ public class MainActivity extends AppCompatActivity {
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = getIntent();
-                String user = i.getStringExtra("userEmail");
-                Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
-                intent.putExtra("userEmail", user);
-                startActivity(intent);
+
             }
         });
 
@@ -45,13 +42,18 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
 
+                case R.id.account:
+                    Intent i = getIntent();
+                    String user = i.getStringExtra("userEmail");
+                    Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
+                    intent.putExtra("userEmail", user);
+                    startActivity(intent);
+                    return true;
                 case R.id.match:
                     return true;
                 case R.id.chat:
                     return true;
-                case R.id.account:
-                    startActivity(new Intent(getApplicationContext(), AccountSettingsActivity.class));
-                    return true;
+
             }
             return false;
         });
