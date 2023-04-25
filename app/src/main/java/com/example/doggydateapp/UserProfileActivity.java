@@ -25,7 +25,7 @@ public class UserProfileActivity extends Activity {
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
 
-        Button editProfile = (Button) findViewById(R.id.editButton);
+        Button editProfile = (Button) findViewById(R.id.circular_button);
 
         TextView userNameText = (TextView) findViewById(R.id.userNameText);
         TextView bioText = (TextView) findViewById(R.id.bioText);
@@ -44,12 +44,12 @@ public class UserProfileActivity extends Activity {
 
         userNameText.setText(users.getName());
         bioText.setText("About Me: " + users.getBio());
-        ageText.setText("Age: " + users.getAge());
-        locationText.setText("Location: " + users.getLocation());
+        ageText.setText(users.getAge());
+        locationText.setText(users.getLocation());
         genderText.setText("Gender: " + users.getGender());
         sexualityText.setText("Sexuality: " + users.getSexuality());
-        schoolText.setText("School: " + users.getSchool());
-        jobText.setText("Occupation: " + users.getJob());
+        schoolText.setText(users.getSchool());
+        jobText.setText(users.getJob());
         interestsText.setText("Interests: " + users.getInterests());
 
         Log.i("bytearray", String.valueOf(users.getProfilePicture()));
