@@ -1,8 +1,11 @@
 package com.example.doggydateapp;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,6 +32,7 @@ public class UserDao extends Dbconnector {
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, pword);
+            Log.i("register", String.valueOf(ps));
 
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -37,7 +41,7 @@ public class UserDao extends Dbconnector {
                 String password = rs.getString("Password");
                 String uEmail = rs.getString("Email");
 
-                u = new Users(userId, uName, password, uEmail, "", "", "", "", null);
+                u = new Users(userId, uName, password, uEmail, "", "", "", "", "", "", "", "", null);
             }
         } catch (SQLException e) {
             throw new SQLException("registerUser " + e.getMessage());
@@ -77,7 +81,46 @@ public class UserDao extends Dbconnector {
                 String uEmail = rs.getString("Email");
                 String password = rs.getString("Password");
 
-                u = new Users(null, null, password, uEmail, null, null, null, null, null);
+                u = new Users(null, null, password, uEmail, null, null, null, null, null, null, null, null, null);
+            }
+        } catch (SQLException e) {
+            throw new SQLException("findUserByUsernamePassword " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                throw new SQLException("findUserByUsernamePassword" + e.getMessage());
+            }
+        }
+        return u;     // u may be null
+    }
+
+    public Users findUserByEmail(String email) throws SQLException {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Users u = null;
+        try {
+            con = this.conToDB();
+
+            String query = "SELECT * FROM public.\"Users\" WHERE \"Email\" = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1, email);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String uEmail = rs.getString("Email");
+
+                u = new Users(null, null, null, uEmail, null, null, null, null, null, null, null, null, null);
             }
         } catch (SQLException e) {
             throw new SQLException("findUserByUsernamePassword " + e.getMessage());
@@ -122,9 +165,15 @@ public class UserDao extends Dbconnector {
                 String gender = rs.getString("Gender");
                 String sexuality = rs.getString("Sexuality");
                 String location = rs.getString("Location");
-                byte[] picture = rs.getBytes("profimage1");
+                String bio = rs.getString("Bio");
+                String school = rs.getString("School/College");
+                String job = rs.getString("Job");
+                String interests = rs.getString("Interests");
+                byte[] picture = rs.getBytes("Image");
 
-                u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, picture);
+                Log.i("bytearray", String.valueOf(picture));
+
+                u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, bio, school, job, interests, picture);
 
             }
         } catch (SQLException e) {
@@ -147,20 +196,22 @@ public class UserDao extends Dbconnector {
         return u;     // u may be null
     }
 
-    public void uploadUserImage(String file, String user) throws SQLException, FileNotFoundException {
+    public void uploadUserImage(Bitmap bmp, String user) throws SQLException, FileNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Users u = null;
-
 
         try {
             con = this.conToDB();
 
-            FileInputStream fis = new FileInputStream(file);
-            String query = "UPDATE public.\"Users\" SET \"profimage1\" = ? WHERE \"Email\" = ?;";
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.JPEG,80,stream);
+            byte[] byteArray = stream.toByteArray();
+            ByteArrayInputStream byteStream = new ByteArrayInputStream(byteArray);
+
+            String query = "UPDATE public.\"Users\" SET \"Image\" = ? WHERE \"Email\" = ?;";
             ps = con.prepareStatement(query);
-            ps.setBinaryStream(1, fis, file.length());
+            ps.setBinaryStream(1, byteStream, byteArray.length);
             ps.setString(2, user);
             Log.i("fileupload", String.valueOf(ps));
             ps.executeQuery();

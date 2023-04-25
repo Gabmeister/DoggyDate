@@ -78,26 +78,24 @@ public class RegisterActivity extends AppCompatActivity {
                 {
 
                     UserDao userDao = new UserDao();
-                    try {
-                        Users checkUser = userDao.findUserByUsernamePassword(email, pword);
-                        //Toast.makeText(getApplicationContext(), checkUser.getEmail(), Toast.LENGTH_LONG).show();
-                        if (checkUser.getEmail().trim().equals(email)) {
-                            Toast.makeText(getApplicationContext(), "A user with this email already exists", Toast.LENGTH_LONG).show();
-                        }
-                        else
-                        {
-                            try {
-                                userDao.registerUser(uname, pword, email);
 
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                    if (checkUser(email) == true)
+                    {
+                        Toast.makeText(getApplicationContext(), "A user with this email already exists", Toast.LENGTH_LONG).show();
                     }
+                    else {
+                        try {
+                            userDao.registerUser(uname, pword, email);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        } finally {
+                            Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    }
+
                 }
-                //finish();
+
             }
         });
 
@@ -109,5 +107,23 @@ public class RegisterActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public boolean checkUser(String email) {
+        try {
+            UserDao userDao = new UserDao();
+            Users checkUser = userDao.findUserByEmail(email);
+            if (checkUser.getEmail().trim().equals(email)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
