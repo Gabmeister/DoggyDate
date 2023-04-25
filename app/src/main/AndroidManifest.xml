@@ -21,7 +21,11 @@
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".AccountSettingsActivity"
+            android:exported="false" />
+        <activity android:name=".MainActivity"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
