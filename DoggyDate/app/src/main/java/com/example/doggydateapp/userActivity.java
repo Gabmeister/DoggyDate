@@ -45,7 +45,7 @@ public class userActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //code here for opening registration activity...
-                Intent intent = new Intent(userActivity.this, userActivity2.class);
+                Intent intent = new Intent(userActivity.this, createDog.class);
                 startActivity(intent);
             }
         });
@@ -138,4 +138,4 @@ public class userActivity extends AppCompatActivity {
             }
         });
     }
-            }
+}

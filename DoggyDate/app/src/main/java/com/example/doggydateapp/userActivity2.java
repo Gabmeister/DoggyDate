@@ -93,12 +93,12 @@ public class userActivity2 extends AppCompatActivity {
 //        });
 
 
-                loginTextView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //code here to open login activity...
-                        finish();
-                    }
-                });
+        loginTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //code here to open login activity...
+                finish();
             }
-        }
+        });
+    }
+}
