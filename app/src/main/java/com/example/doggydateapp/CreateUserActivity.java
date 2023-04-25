@@ -15,10 +15,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,11 +34,13 @@ public class CreateUserActivity extends Activity {
     private EditText inputGender;
     private EditText inputSexuality;
     private EditText inputLocation;
+    private EditText inputJob;
+    private EditText inputSchool;
+    private Spinner interestSpinner1, interestSpinner2, interestSpinner3;
     private Button uploadPhoto;
-    private EditText inputInterests;
-    private TextView loginTextView;
-    private Button continueButton;
+    private Button submitButton;
     private ImageView profilePicture;
+    private BottomNavigationView bottomNavigationView;
     Uri imageUri;
     private static final int PICK_IMAGE = 100;
 
@@ -48,6 +53,12 @@ public class CreateUserActivity extends Activity {
         inputGender = findViewById(R.id.inputGender);
         inputSexuality = findViewById(R.id.inputSexuality);
         inputLocation = findViewById(R.id.inputLocation);
+        inputJob = findViewById(R.id.inputJob);
+        inputSchool = findViewById(R.id.inputSchool);
+        interestSpinner1 = findViewById(R.id.interestsSpinner1);
+        interestSpinner2 = findViewById(R.id.interestsSpinner2);
+        interestSpinner3 = findViewById(R.id.interestsSpinner3);
+        submitButton = findViewById(R.id.submitButton);
         uploadPhoto = findViewById(R.id.uploadPhoto);
         profilePicture = findViewById(R.id.profilePic);
         Intent i = getIntent();
@@ -172,7 +183,27 @@ public class CreateUserActivity extends Activity {
 //                //finish();
 //            }
 //      });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.match);
 
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+
+                case R.id.account:
+                    Intent in = getIntent();
+                    String user = in.getStringExtra("userEmail");
+                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                    intent.putExtra("userEmail", user);
+                    startActivity(intent);
+                    return true;
+                case R.id.match:
+                    return true;
+                case R.id.chat:
+                    return true;
+
+            }
+            return false;
+        });
 
     }
 

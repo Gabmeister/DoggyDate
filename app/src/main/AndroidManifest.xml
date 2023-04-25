@@ -39,7 +39,6 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".CreateUserActivity" />
-        <activity android:name=".CreateUserContinued"></activity>
         <activity android:name=".UserProfileActivity"></activity>
     </application>
 
