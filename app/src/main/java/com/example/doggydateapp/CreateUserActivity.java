@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,10 +34,11 @@ public class CreateUserActivity extends Activity {
     private EditText inputGender;
     private EditText inputSexuality;
     private EditText inputLocation;
+    private EditText inputJob;
+    private EditText inputSchool;
+    private Spinner interestSpinner1, interestSpinner2, interestSpinner3;
     private Button uploadPhoto;
-    private EditText inputInterests;
-    private TextView loginTextView;
-    private Button continueButton;
+    private Button submitButton;
     private ImageView profilePicture;
     private BottomNavigationView bottomNavigationView;
     Uri imageUri;
@@ -51,6 +53,12 @@ public class CreateUserActivity extends Activity {
         inputGender = findViewById(R.id.inputGender);
         inputSexuality = findViewById(R.id.inputSexuality);
         inputLocation = findViewById(R.id.inputLocation);
+        inputJob = findViewById(R.id.inputJob);
+        inputSchool = findViewById(R.id.inputSchool);
+        interestSpinner1 = findViewById(R.id.interestsSpinner1);
+        interestSpinner2 = findViewById(R.id.interestsSpinner2);
+        interestSpinner3 = findViewById(R.id.interestsSpinner3);
+        submitButton = findViewById(R.id.submitButton);
         uploadPhoto = findViewById(R.id.uploadPhoto);
         profilePicture = findViewById(R.id.profilePic);
         Intent i = getIntent();
