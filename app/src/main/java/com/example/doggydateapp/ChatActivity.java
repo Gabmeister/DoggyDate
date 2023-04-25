@@ -17,6 +17,8 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        Intent i = getIntent();
+        String email = i.getStringExtra("userEmail");
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_chat);
         bottomNavigationView.setSelectedItemId(R.id.chat);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -24,7 +26,9 @@ public class ChatActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.match:
+
                         Intent intent = new Intent(ChatActivity.this, MainActivity.class);
+                        intent.putExtra("userEmail", email);
                         startActivity(intent);
                         return true;
 
@@ -32,7 +36,10 @@ public class ChatActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        Intent profileIntent = new Intent(ChatActivity.this, AccountSettingsActivity.class);
+
+
+                        Intent profileIntent = new Intent(ChatActivity.this, UserProfileActivity.class);
+                        profileIntent.putExtra("userEmail", email);
                         startActivity(profileIntent);
                         return true;
                 }

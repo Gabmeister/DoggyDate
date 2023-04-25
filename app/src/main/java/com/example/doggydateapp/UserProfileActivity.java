@@ -6,12 +6,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.sql.SQLException;
 
@@ -37,10 +42,9 @@ public class UserProfileActivity extends Activity {
         TextView jobText = (TextView) findViewById(R.id.jobText);
         TextView interestsText = (TextView) findViewById(R.id.interestsText);
         ImageView profilePicture = (ImageView) findViewById(R.id.profilePicture);
-        int imageWidth = 1132;
-        int imageHeight = 1536;
 
         Users users = pullUserData(email);
+        Log.i("user", users.getName());
 
         userNameText.setText(users.getName());
         bioText.setText("About Me: " + users.getBio());
@@ -64,7 +68,6 @@ public class UserProfileActivity extends Activity {
         }
 
 
-
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +85,31 @@ public class UserProfileActivity extends Activity {
                 startActivity(intent);
             }
 
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_account);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.match:
+                        Intent intent = new Intent(UserProfileActivity.this, MainActivity.class);
+                        intent.putExtra("userEmail", email);
+                        startActivity(intent);
+                        return true;
+
+                    case R.id.chat:
+                        Intent chatIntent = new Intent(UserProfileActivity.this, ChatActivity.class);
+                        chatIntent.putExtra("userEmail", email);
+                        startActivity(chatIntent);
+                        return true;
+
+                    case R.id.profile:
+                        return true;
+                }
+                return false;
+            }
         });
     }
 

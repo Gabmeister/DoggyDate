@@ -189,7 +189,7 @@ public class CreateUserActivity extends Activity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
 
-                case R.id.account:
+                case R.id.profile:
                     Intent in = getIntent();
                     String user = in.getStringExtra("userEmail");
                     Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);

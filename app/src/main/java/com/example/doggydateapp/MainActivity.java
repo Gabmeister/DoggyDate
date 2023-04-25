@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent i = getIntent();
+        String email = i.getStringExtra("userEmail");
+
 
         likeButton = findViewById(R.id.like_button);
         dislikeButton = findViewById(R.id.dislike_button);
@@ -53,12 +56,15 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.chat:
                         //change placeholder x.class to corresponding page.
                         Intent intent = new Intent(MainActivity.this, ChatActivity.class); //<-- REPLACE HERE
+                        intent.putExtra("userEmail", email);
                         startActivity(intent);
                         return true;
 
                     case R.id.profile:
                         //change placeholder x.class to corresponding page (profile page).
-                        Intent account_intent = new Intent(MainActivity.this, AccountSettingsActivity.class); //<-- REPLACE HERE
+
+                        Intent account_intent = new Intent(MainActivity.this, UserProfileActivity.class); //<-- REPLACE HERE
+                        account_intent.putExtra("userEmail", email);
                         startActivity(account_intent);
                         return true;
                 }
