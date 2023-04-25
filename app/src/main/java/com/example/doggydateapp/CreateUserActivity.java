@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,6 +38,7 @@ public class CreateUserActivity extends Activity {
     private TextView loginTextView;
     private Button continueButton;
     private ImageView profilePicture;
+    private BottomNavigationView bottomNavigationView;
     Uri imageUri;
     private static final int PICK_IMAGE = 100;
 
@@ -172,7 +175,27 @@ public class CreateUserActivity extends Activity {
 //                //finish();
 //            }
 //      });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.match);
 
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+
+                case R.id.account:
+                    Intent in = getIntent();
+                    String user = in.getStringExtra("userEmail");
+                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                    intent.putExtra("userEmail", user);
+                    startActivity(intent);
+                    return true;
+                case R.id.match:
+                    return true;
+                case R.id.chat:
+                    return true;
+
+            }
+            return false;
+        });
 
     }
 

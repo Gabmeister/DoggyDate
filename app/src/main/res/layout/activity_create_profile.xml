@@ -24,11 +24,11 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <ScrollView
-        android:layout_width="410dp"
-        android:layout_height="566dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        android:layout_width="412dp"
+        android:layout_height="680dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,6 +51,7 @@
                 android:layout_marginLeft="40sp"
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
+                android:background="@color/purple_500"
                 android:text="Upload Photo" />
 
             <TextView
@@ -58,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40sp"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="25sp"
                 android:text="Write About Yourself:"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -244,6 +245,74 @@
                 android:paddingBottom="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/interestsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="Please select 3 of your interests below:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/interestsSpinner1"
+                style="@android:style/Widget.Material.Light.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/black"
+                android:entries="@array/interests"
+                android:gravity="center"
+                android:paddingTop="30sp"
+                android:paddingBottom="30sp"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/interestsSpinner2"
+                style="@android:style/Widget.Material.Light.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/black"
+                android:entries="@array/interests"
+                android:paddingTop="30sp"
+                android:paddingBottom="30sp"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/interestsSpinner3"
+                style="@android:style/Widget.Material.Light.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/black"
+                android:entries="@array/interests"
+                android:paddingTop="30sp"
+                android:paddingBottom="30sp"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="40sp"
+                android:background="@color/purple_500"
+                android:text="Submit Changes" />
         </LinearLayout>
     </ScrollView>
 
