@@ -28,9 +28,9 @@ public class AccountSettingsActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     return true;
                 case R.id.chat:
+                    startActivity(new Intent(getApplicationContext(), ChatActivity.class));
                     return true;
                 case R.id.account:
-                    startActivity(new Intent(getApplicationContext(), AccountSettingsActivity.class));
                     return true;
             }
 
