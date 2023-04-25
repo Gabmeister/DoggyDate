@@ -10,9 +10,13 @@ public class Users {
     private String gender;
     private String sexuality;
     private String location;
+    private String bio;
+    private String school;
+    private String job;
+    private String interests;
     private byte[] profilePicture;
 
-    public Users(String _id, String name, String password, String email, String age, String gender, String sexuality, String location, byte[] profilePicture) {
+    public Users(String _id, String name, String password, String email, String age, String gender, String sexuality, String location, String bio, String school, String job, String interests, byte[] profilePicture) {
         this._id = _id;
         this.name = name;
         this.password = password;
@@ -21,6 +25,10 @@ public class Users {
         this.gender = gender;
         this.sexuality = sexuality;
         this.location = location;
+        this.bio = bio;
+        this.school = school;
+        this.job = job;
+        this.interests = interests;
         this.profilePicture = profilePicture;
     }
 
@@ -87,6 +95,22 @@ public class Users {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public String getBio() { return bio; }
+
+    public void setBio(String bio) { this.bio = bio; }
+
+    public String getSchool() { return school; }
+
+    public void setSchool(String school) {this.school = school;}
+
+    public String getJob() { return job; }
+
+    public void setJob(String job) { this.job = job; }
+
+    public String getInterests() {return interests;}
+
+    public void setInterests(String interests) { this.interests = interests; }
 
     public byte[] getProfilePicture() {
         return profilePicture;

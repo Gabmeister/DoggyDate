@@ -4,55 +4,95 @@ package com.example.doggydateapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class CreateUserActivity extends Activity {
 
     //placeholder names.. change if needed
-    private EditText inputAge;
+    private EditText inputBio;
     private EditText inputGender;
     private EditText inputSexuality;
     private EditText inputLocation;
+    private Button uploadPhoto;
     private EditText inputInterests;
     private TextView loginTextView;
     private Button continueButton;
+    private ImageView profilePicture;
+    Uri imageUri;
+    private static final int PICK_IMAGE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user);
+        setContentView(R.layout.activity_create_profile);
 
-
-        inputAge = findViewById(R.id.inputAge);
+        inputBio = findViewById(R.id.inputBio);
         inputGender = findViewById(R.id.inputGender);
         inputSexuality = findViewById(R.id.inputSexuality);
         inputLocation = findViewById(R.id.inputLocation);
-        inputInterests = findViewById(R.id.inputInterests);
-        loginTextView = findViewById(R.id.loginText);
-        continueButton = findViewById(R.id.continueButton);
+        uploadPhoto = findViewById(R.id.uploadPhoto);
+        profilePicture = findViewById(R.id.profilePic);
+        Intent i = getIntent();
+        String currentBio = i.getStringExtra("userBio");
+        String currentGender = i.getStringExtra("userGender");
+        String currentSexuality = i.getStringExtra("userSexuality");
+        String currentLocation = i.getStringExtra("userLocation");
+        byte[] pic = i.getByteArrayExtra("userPicture");
+
+        try {
+            Bitmap bmp = BitmapFactory.decodeByteArray(pic, 0, pic.length);
+            profilePicture.setImageBitmap(bmp);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
 
-        continueButton.setOnClickListener(new View.OnClickListener() {
+
+        inputBio.setText(currentBio);
+        inputGender.setText(currentGender);
+        inputSexuality.setText(currentSexuality);
+        inputLocation.setText(currentLocation);
+
+
+        uploadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //code here for opening registration activity...
-                Intent i = getIntent();
-                String user = i.getStringExtra("userEmail");
-                Intent intent = new Intent(CreateUserActivity.this, CreateUserContinued.class);
-                intent.putExtra("userEmail", user);
-                startActivity(intent);
+                openGallery();
             }
         });
+//        loginTextView = findViewById(R.id.loginText);
+//        continueButton = findViewById(R.id.continueButton);
+//
+//
+//        continueButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //code here for opening registration activity...
+//                Intent i = getIntent();
+//                String user = i.getStringExtra("userEmail");
+//                Intent intent = new Intent(CreateUserActivity.this, CreateUserContinued.class);
+//                intent.putExtra("userEmail", user);
+//                startActivity(intent);
+//            }
+//        });
 
 
 //        createButton.setOnClickListener(new View.OnClickListener() {
@@ -134,12 +174,45 @@ public class CreateUserActivity extends Activity {
 //      });
 
 
-        loginTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //code here to open login activity...
-                finish();
-            }
-        });
     }
+
+    private void openGallery() {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, PICK_IMAGE);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            imageUri = data.getData();
+
+            String[] filePath = {MediaStore.Images.Media.DATA};
+            Cursor c = getContentResolver().query(imageUri, filePath,
+                    null, null, null);
+            c.moveToFirst();
+            int columnIndex = c.getColumnIndex(filePath[0]);
+            String FilePathStr = c.getString(columnIndex);
+            c.close();
+
+            Log.i("imageuri", String.valueOf(imageUri));
+            try {
+
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+
+                Intent i = getIntent();
+                String user = i.getStringExtra("userEmail");
+                UserDao userDao = new UserDao();
+                userDao.uploadUserImage(bitmap, user);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+        }
+    }
+
+}
