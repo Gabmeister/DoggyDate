@@ -9,7 +9,7 @@
         android:icon="@drawable/menu_chat"
         android:title="Chat"
          />
-    <item android:id="@+id/account"
+    <item android:id="@+id/profile"
         android:icon="@drawable/menu_account"
-        android:title="Account"/>
+        android:title="Profile"/>
 </menu>

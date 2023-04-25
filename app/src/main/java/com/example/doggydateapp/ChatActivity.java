@@ -1,10 +1,14 @@
 package com.example.doggydateapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -13,23 +17,27 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_chat);
         bottomNavigationView.setSelectedItemId(R.id.chat);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.match:
+                        Intent intent = new Intent(ChatActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        return true;
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
+                    case R.id.chat:
+                        return true;
 
-                case R.id.match:
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    return true;
-                case R.id.chat:
-                    return true;
-                case R.id.account:
-                    startActivity(new Intent(getApplicationContext(), AccountSettingsActivity.class));
-                    return true;
+                    case R.id.profile:
+                        Intent profileIntent = new Intent(ChatActivity.this, AccountSettingsActivity.class);
+                        startActivity(profileIntent);
+                        return true;
+                }
+                return false;
             }
-
-            return false;
         });
     }
 }

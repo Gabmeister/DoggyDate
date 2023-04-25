@@ -1,13 +1,17 @@
 package com.example.doggydateapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button likeButton;
@@ -36,22 +40,33 @@ public class MainActivity extends AppCompatActivity {
                 // code here for dislike button click/swipe
             }
         });
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.match);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.match:
+                        return true;
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
+                    case R.id.chat:
+                        //change placeholder x.class to corresponding page.
+                        Intent intent = new Intent(MainActivity.this, ChatActivity.class); //<-- REPLACE HERE
+                        startActivity(intent);
+                        return true;
 
-                case R.id.match:
-                    return true;
-                case R.id.chat:
-                    return true;
-                case R.id.account:
-                    startActivity(new Intent(getApplicationContext(), AccountSettingsActivity.class));
-                    return true;
+                    case R.id.profile:
+                        //change placeholder x.class to corresponding page (profile page).
+                        Intent account_intent = new Intent(MainActivity.this, AccountSettingsActivity.class); //<-- REPLACE HERE
+                        startActivity(account_intent);
+                        return true;
+                }
+                return false;
             }
-            return false;
         });
+
+
     }
 
 
