@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class UserDao extends Dbconnector {
 
 
-    public Users registerUser(String name, String email, String pword) throws SQLException {
+    public Users registerUser(String name, String email, String pword, String age) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -27,11 +27,12 @@ public class UserDao extends Dbconnector {
         try {
             con = this.conToDB();
 
-            String query = "INSERT INTO public.\"Users\"(\"UserID\", \"Name\", \"Password\", \"Email\") VALUES (gen_random_uuid(), ?, ?, ?);";
+            String query = "INSERT INTO public.\"Users\"(\"UserID\", \"Name\", \"Password\", \"Email\", \"Age\") VALUES (gen_random_uuid(), ?, ?, ?, ?);";
             ps = con.prepareStatement(query);
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, pword);
+            ps.setString(4, age);
             Log.i("register", String.valueOf(ps));
 
             rs = ps.executeQuery();

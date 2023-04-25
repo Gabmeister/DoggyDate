@@ -61,6 +61,7 @@ public class CreateUserActivity extends Activity {
         submitButton = findViewById(R.id.submitButton);
         uploadPhoto = findViewById(R.id.uploadPhoto);
         profilePicture = findViewById(R.id.profilePic);
+
         Intent i = getIntent();
         String currentBio = i.getStringExtra("userBio");
         String currentGender = i.getStringExtra("userGender");
@@ -87,23 +88,12 @@ public class CreateUserActivity extends Activity {
             @Override
             public void onClick(View v) {
                 openGallery();
+                Toast.makeText(getApplicationContext(), "Photo will be changed the next time you load your profile", Toast.LENGTH_LONG).show();
             }
         });
-//        loginTextView = findViewById(R.id.loginText);
-//        continueButton = findViewById(R.id.continueButton);
-//
-//
-//        continueButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //code here for opening registration activity...
-//                Intent i = getIntent();
-//                String user = i.getStringExtra("userEmail");
-//                Intent intent = new Intent(CreateUserActivity.this, CreateUserContinued.class);
-//                intent.putExtra("userEmail", user);
-//                startActivity(intent);
-//            }
-//        });
+
+        submitButton = findViewById(R.id.submitButton);
+
 
 
 //        createButton.setOnClickListener(new View.OnClickListener() {
@@ -234,6 +224,8 @@ public class CreateUserActivity extends Activity {
                 String user = i.getStringExtra("userEmail");
                 UserDao userDao = new UserDao();
                 userDao.uploadUserImage(bitmap, user);
+
+
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

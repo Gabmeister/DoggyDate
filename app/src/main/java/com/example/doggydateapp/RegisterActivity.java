@@ -20,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText inputEmail;
     private EditText inputPass;
     private EditText inputConfirmPass;
+    private EditText inputAge;
     private Button registerButton;
     private TextView loginTextView;
 
@@ -35,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputConfirmPass = findViewById(R.id.insertConfirmPassword);
         registerButton = findViewById(R.id.buttonRegister);
         loginTextView = findViewById(R.id.loginText);
+        inputAge = findViewById(R.id.inputAge);
 
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String pword = String.valueOf(inputPass.getText());
                 String conPWord = String.valueOf(inputConfirmPass.getText());
                 String email = String.valueOf(inputEmail.getText());
+                String age = String.valueOf(inputAge.getText());
 
                 Log.i("register", uname+", "+pword+", "+conPWord+", "+email);
 
@@ -69,6 +72,14 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(), "Confirm password", Toast.LENGTH_LONG).show();
                 }
+                else if (age.trim().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Enter Age", Toast.LENGTH_LONG).show();
+                }
+                else if (Integer.valueOf(age) < 21)
+                {
+                    Toast.makeText(getApplicationContext(), "You must be 21+ to use this app", Toast.LENGTH_LONG).show();
+                }
 
                 else if (!pword.trim().equals(conPWord.trim()))
                 {
@@ -85,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     else {
                         try {
-                            userDao.registerUser(uname, pword, email);
+                            userDao.registerUser(uname, pword, email, age);
                         } catch (SQLException e) {
                             e.printStackTrace();
                         } finally {
