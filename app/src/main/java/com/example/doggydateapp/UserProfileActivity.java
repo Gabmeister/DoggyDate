@@ -82,6 +82,7 @@ public class UserProfileActivity extends Activity {
                 intent.putExtra("userInterests", users.getInterests());
                 intent.putExtra("userEmail", email);
                 intent.putExtra("userPicture", pic);
+                finish();
                 startActivity(intent);
             }
 

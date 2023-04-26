@@ -51,7 +51,7 @@
                 android:layout_marginLeft="40sp"
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
-                android:background="@color/purple_500"
+                android:background="@color/doggydateRed"
                 android:text="Upload Photo" />
 
             <TextView
@@ -266,7 +266,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="20sp"
-                android:background="@color/black"
+                android:background="@color/doggydateRed"
                 android:entries="@array/interests"
                 android:gravity="center"
                 android:paddingTop="30sp"
@@ -282,7 +282,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="20sp"
-                android:background="@color/black"
+                android:background="@color/doggydateRed"
                 android:entries="@array/interests"
                 android:paddingTop="30sp"
                 android:paddingBottom="30sp"
@@ -297,7 +297,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="20sp"
-                android:background="@color/black"
+                android:background="@color/doggydateRed"
                 android:entries="@array/interests"
                 android:paddingTop="30sp"
                 android:paddingBottom="30sp"
@@ -311,7 +311,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="40sp"
-                android:background="@color/purple_500"
+                android:background="@color/doggydateRed"
                 android:text="Submit Changes" />
         </LinearLayout>
     </ScrollView>

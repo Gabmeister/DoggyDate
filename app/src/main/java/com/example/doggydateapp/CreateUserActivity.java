@@ -49,6 +49,9 @@ public class CreateUserActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
 
+        Intent in = getIntent();
+        String user = in.getStringExtra("userEmail");
+
         inputBio = findViewById(R.id.inputBio);
         inputGender = findViewById(R.id.inputGender);
         inputSexuality = findViewById(R.id.inputSexuality);
@@ -67,6 +70,8 @@ public class CreateUserActivity extends Activity {
         String currentGender = i.getStringExtra("userGender");
         String currentSexuality = i.getStringExtra("userSexuality");
         String currentLocation = i.getStringExtra("userLocation");
+        String currentJob = i.getStringExtra("userJob");
+        String currentSchool = i.getStringExtra("userSchool");
         byte[] pic = i.getByteArrayExtra("userPicture");
 
         try {
@@ -82,6 +87,8 @@ public class CreateUserActivity extends Activity {
         inputGender.setText(currentGender);
         inputSexuality.setText(currentSexuality);
         inputLocation.setText(currentLocation);
+        inputJob.setText(currentJob);
+        inputSchool.setText(currentSchool);
 
 
         uploadPhoto.setOnClickListener(new View.OnClickListener() {
@@ -174,21 +181,26 @@ public class CreateUserActivity extends Activity {
 //            }
 //      });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.match);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
 
                 case R.id.profile:
-                    Intent in = getIntent();
-                    String user = in.getStringExtra("userEmail");
+
                     Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
                     intent.putExtra("userEmail", user);
                     startActivity(intent);
                     return true;
                 case R.id.match:
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                    intent1.putExtra("userEmail", user);
+                    startActivity(intent1);
                     return true;
                 case R.id.chat:
+                    Intent chatIntent = new Intent(getApplicationContext(), ChatActivity.class);
+                    chatIntent.putExtra("userEmail", user);
+                    startActivity(chatIntent);
                     return true;
 
             }
