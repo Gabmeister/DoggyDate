@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 
 public class UserDao extends Dbconnector {
@@ -63,6 +63,7 @@ public class UserDao extends Dbconnector {
         }
         return u;
     }
+
     public Users findUserByUsernamePassword(String email, String pword) throws SQLException {
 
         Connection con = null;
@@ -236,6 +237,64 @@ public class UserDao extends Dbconnector {
                 throw new SQLException("uploadImage" + e.getMessage());
             }
         }
+    }
+
+    public ArrayList<Users> retrieveAllUsers(String email) throws SQLException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<Users> users = new ArrayList<>();
+
+
+        try {
+            con = this.conToDB();
+
+            String query = "SELECT * FROM public.\"Users\" EXCEPT SELECT * FROM public.\"Users\" WHERE \"Email\" = ?;";
+            ps = con.prepareStatement(query);
+            ps.setString(1, email);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String userId = rs.getString("UserID");
+                String uEmail = rs.getString("Email");
+                String password = rs.getString("Password");
+                String name = rs.getString("Name");
+                String age = rs.getString("Age");
+                String gender = rs.getString("Gender");
+                String sexuality = rs.getString("Sexuality");
+                String location = rs.getString("Location");
+                String bio = rs.getString("Bio");
+                String school = rs.getString("School/College");
+                String job = rs.getString("Job");
+                String interests = rs.getString("Interests");
+                byte[] picture = rs.getBytes("Image");
+
+
+
+                Users u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, bio, school, job, interests, picture);
+                Log.i("bytearray", String.valueOf(u.getEmail()));
+                users.add(u);
+
+            }
+            return users;
+        } catch (SQLException e) {
+            throw new SQLException("findUserByUsernamePassword " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                throw new SQLException("findUserByUsernamePassword" + e.getMessage());
+            }
+        }
+
     }
 
 }
