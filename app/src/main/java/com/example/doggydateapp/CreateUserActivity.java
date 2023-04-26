@@ -64,6 +64,8 @@ public class CreateUserActivity extends Activity {
         submitButton = findViewById(R.id.submitButton);
         uploadPhoto = findViewById(R.id.uploadPhoto);
         profilePicture = findViewById(R.id.profilePic);
+        String[] noSelection = getResources().getStringArray(R.array.interests);
+
 
         Intent i = getIntent();
         String currentBio = i.getStringExtra("userBio");
@@ -72,6 +74,7 @@ public class CreateUserActivity extends Activity {
         String currentLocation = i.getStringExtra("userLocation");
         String currentJob = i.getStringExtra("userJob");
         String currentSchool = i.getStringExtra("userSchool");
+        String currentInterests = i.getStringExtra("userInterests");
         byte[] pic = i.getByteArrayExtra("userPicture");
 
         try {
@@ -90,12 +93,35 @@ public class CreateUserActivity extends Activity {
         inputJob.setText(currentJob);
         inputSchool.setText(currentSchool);
 
+        String[] splitInterests = currentInterests.split(",");
+        Log.i("string", splitInterests[0].trim());
+        Log.i("string", splitInterests[1].trim());
+        Log.i("string", splitInterests[2].trim());
+
+
+        for(int x = 0; x < noSelection.length; x++)
+        {
+            if(splitInterests[0].trim().equalsIgnoreCase(noSelection[x].trim()))
+            {
+                interestSpinner1.setSelection(x);
+            }
+            if(splitInterests[1].trim().equalsIgnoreCase(noSelection[x].trim()))
+            {
+                interestSpinner2.setSelection(x);
+            }
+            if(splitInterests[2].trim().equalsIgnoreCase(noSelection[x].trim()))
+            {
+                interestSpinner3.setSelection(x);
+            }
+        }
+
+
 
         uploadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGallery();
-                Toast.makeText(getApplicationContext(), "Photo will be changed the next time you load your profile", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Photo will be changed the next time you load your profile", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -115,7 +141,7 @@ public class CreateUserActivity extends Activity {
                 String interest2 = String.valueOf(interestSpinner2.getSelectedItem());
                 String interest3 = String.valueOf(interestSpinner3.getSelectedItem());
                 StringBuilder interests = new StringBuilder();
-                String[] noSelection = getResources().getStringArray(R.array.interests);
+
                 Log.i("interestsstr", interest1);
                 Log.i("intereststtt", noSelection[0]);
 
@@ -218,6 +244,7 @@ public class CreateUserActivity extends Activity {
 
                 Intent i = getIntent();
                 String user = i.getStringExtra("userEmail");
+                profilePicture.setImageBitmap(bitmap);
                 UserDao userDao = new UserDao();
                 userDao.uploadUserImage(bitmap, user);
 
