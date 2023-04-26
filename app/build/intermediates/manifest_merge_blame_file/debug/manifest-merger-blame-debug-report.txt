@@ -1,0 +1,132 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.doggydateapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+12-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:6:5-76
+12-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:6:22-73
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:7:22-76
+14
+15    <permission
+15-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+16        android:name="com.example.doggydateapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+16-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+17        android:protectionLevel="signature" />
+17-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+18
+19    <uses-permission android:name="com.example.doggydateapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+19-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+19-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+20
+21    <application
+21-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:9:5-44:19
+22        android:allowBackup="true"
+22-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:10:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+24        android:dataExtractionRules="@xml/data_extraction_rules"
+24-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:11:9-65
+25        android:debuggable="true"
+26        android:fullBackupContent="@xml/backup_rules"
+26-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:12:9-54
+27        android:icon="@mipmap/ic_launcher"
+27-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:13:9-43
+28        android:label="@string/app_name"
+28-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:14:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:15:9-54
+30        android:supportsRtl="true"
+30-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:16:9-35
+31        android:testOnly="true"
+32        android:theme="@style/Theme.DoggyDateApp" >
+32-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:17:9-50
+33        <activity
+33-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:19:9-25:20
+34            android:name="com.example.doggydateapp.CreateDogActivity"
+34-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:20:13-46
+35            android:exported="false" >
+35-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:21:13-37
+36            <meta-data
+36-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:22:13-24:36
+37                android:name="android.app.lib_name"
+37-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:23:17-52
+38                android:value="" />
+38-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:24:17-33
+39        </activity>
+40        <activity android:name="com.example.doggydateapp.MainActivity" >
+40-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:26:9-30:20
+40-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:26:19-47
+41            <meta-data
+41-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:22:13-24:36
+42                android:name="android.app.lib_name"
+42-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:23:17-52
+43                android:value="" />
+43-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:24:17-33
+44        </activity>
+45        <activity
+45-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:31:9-39:20
+46            android:name="com.example.doggydateapp.LoginActivity"
+46-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:32:13-42
+47            android:exported="true" >
+47-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:33:13-36
+48            <intent-filter>
+48-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:34:13-38:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:35:17-69
+49-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:35:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:37:17-77
+51-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:37:27-74
+52            </intent-filter>
+53        </activity>
+54        <activity android:name="com.example.doggydateapp.RegisterActivity" />
+54-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:40:9-54
+54-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:40:19-51
+55        <activity android:name="com.example.doggydateapp.CreateUserActivity" />
+55-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:41:9-56
+55-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:41:19-53
+56        <activity android:name="com.example.doggydateapp.ChatActivity" />
+56-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:42:9-49
+56-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:42:19-47
+57        <activity android:name="com.example.doggydateapp.UserProfileActivity" />
+57-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:43:9-66
+57-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:43:19-54
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+61            android:authorities="com.example.doggydateapp.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+69        </provider>
+70    </application>
+71
+72</manifest>
