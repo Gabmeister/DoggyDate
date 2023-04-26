@@ -38,7 +38,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".CreateUserActivity" />
+        <activity android:name=".CreateUserActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ChatActivity"/>
         <activity android:name=".UserProfileActivity"></activity>
     </application>
