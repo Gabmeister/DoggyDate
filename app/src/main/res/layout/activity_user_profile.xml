@@ -47,11 +47,12 @@
             <ImageView
                 android:id="@+id/profilePicture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="380dp"
                 android:adjustViewBounds="true"
-                android:maxHeight="400sp"
                 android:paddingTop="20dp"
-                android:scaleType="fitCenter"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerInside"
                 android:src="@drawable/ic_baseline_add_a_photo_24"
                 android:visibility="visible" />
 
@@ -89,8 +90,10 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:paddingTop="20sp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/locationText"
@@ -99,8 +102,8 @@
                 android:drawableLeft="@drawable/ic_baseline_location_on_24"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/schoolText"
@@ -109,8 +112,8 @@
                 android:drawableLeft="@drawable/ic_baseline_school_24"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/jobText"
@@ -119,38 +122,41 @@
                 android:drawableLeft="@drawable/ic_baseline_work_24"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/genderText"
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
+                android:drawableLeft="@drawable/ic_baseline_gender_24"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
                 android:text="Gender:"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/sexualityText"
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
+                android:drawableLeft="@drawable/menu_match"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
                 android:text="Sexuality:"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/interestsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_interests_24"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
                 android:text="Interests:"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
 
         </LinearLayout>

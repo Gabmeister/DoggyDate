@@ -71,6 +71,8 @@ public class LoginActivity extends Activity {
                     } catch (SQLException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
                     }
                 }
             }

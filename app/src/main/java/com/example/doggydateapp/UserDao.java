@@ -42,7 +42,7 @@ public class UserDao extends Dbconnector {
                 String password = rs.getString("Password");
                 String uEmail = rs.getString("Email");
 
-                u = new Users(userId, uName, password, uEmail, "", "", "", "", "", "", "", "", null);
+                u = new Users(userId, uName, password, uEmail, "", "", "", "", "", "", "", "", null, null);
             }
         } catch (SQLException e) {
             throw new SQLException("registerUser " + e.getMessage());
@@ -83,7 +83,7 @@ public class UserDao extends Dbconnector {
                 String uEmail = rs.getString("Email");
                 String password = rs.getString("Password");
 
-                u = new Users(null, null, password, uEmail, null, null, null, null, null, null, null, null, null);
+                u = new Users(null, null, password, uEmail, null, null, null, null, null, null, null, null, null, null);
             }
         } catch (SQLException e) {
             throw new SQLException("findUserByUsernamePassword " + e.getMessage());
@@ -122,7 +122,7 @@ public class UserDao extends Dbconnector {
             if (rs.next()) {
                 String uEmail = rs.getString("Email");
 
-                u = new Users(null, null, null, uEmail, null, null, null, null, null, null, null, null, null);
+                u = new Users(null, null, null, uEmail, null, null, null, null, null, null, null, null, null, null);
             }
         } catch (SQLException e) {
             throw new SQLException("findUserByUsernamePassword " + e.getMessage());
@@ -172,10 +172,11 @@ public class UserDao extends Dbconnector {
                 String job = rs.getString("Job");
                 String interests = rs.getString("Interests");
                 byte[] picture = rs.getBytes("Image");
+                Integer rotate = rs.getInt("Rotate");
 
                 Log.i("bytearray", String.valueOf(picture));
 
-                u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, bio, school, job, interests, picture);
+                u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, bio, school, job, interests, picture, rotate);
 
             }
         } catch (SQLException e) {
@@ -240,7 +241,7 @@ public class UserDao extends Dbconnector {
 
     }
 
-    public void uploadUserImage(Bitmap bmp, String user) throws SQLException, FileNotFoundException {
+    public void uploadUserImage(Bitmap bmp, String user, Integer rotate) throws SQLException, FileNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -253,10 +254,11 @@ public class UserDao extends Dbconnector {
             byte[] byteArray = stream.toByteArray();
             ByteArrayInputStream byteStream = new ByteArrayInputStream(byteArray);
 
-            String query = "UPDATE public.\"Users\" SET \"Image\" = ? WHERE \"Email\" = ?;";
+            String query = "UPDATE public.\"Users\" SET \"Image\" = ?, \"Rotate\" = ? WHERE \"Email\" = ?;";
             ps = con.prepareStatement(query);
             ps.setBinaryStream(1, byteStream, byteArray.length);
-            ps.setString(2, user);
+            ps.setString(3, user);
+            ps.setInt(2, rotate);
             Log.i("fileupload", String.valueOf(ps));
             ps.executeQuery();
 
@@ -310,10 +312,11 @@ public class UserDao extends Dbconnector {
                 String job = rs.getString("Job");
                 String interests = rs.getString("Interests");
                 byte[] picture = rs.getBytes("Image");
+                Integer rotate = rs.getInt("Rotate");
 
 
 
-                Users u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, bio, school, job, interests, picture);
+                Users u = new Users(userId, name, password, uEmail, age, gender, sexuality, location, bio, school, job, interests, picture, rotate);
                 Log.i("bytearray", String.valueOf(u.getEmail()));
                 users.add(u);
 

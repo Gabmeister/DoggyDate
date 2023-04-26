@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class UserProfileActivity extends Activity {
@@ -50,19 +52,24 @@ public class UserProfileActivity extends Activity {
         bioText.setText("About Me: " + users.getBio());
         ageText.setText(users.getAge());
         locationText.setText(users.getLocation());
-        genderText.setText("Gender: " + users.getGender());
-        sexualityText.setText("Sexuality: " + users.getSexuality());
+        genderText.setText(users.getGender());
+        sexualityText.setText(users.getSexuality());
         schoolText.setText(users.getSchool());
         jobText.setText(users.getJob());
-        interestsText.setText("Interests: " + users.getInterests());
+        interestsText.setText(users.getInterests());
+
+        Integer rotate = users.getRotate();
 
         Log.i("bytearray", String.valueOf(users.getProfilePicture()));
         byte[] pic = users.getProfilePicture();
 
         try {
             Bitmap bmp = BitmapFactory.decodeByteArray(pic, 0, pic.length);
-            Log.i("bit", String.valueOf(bmp));
+
             profilePicture.setImageBitmap(bmp);
+            profilePicture.setRotation(rotate);
+
+
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -82,6 +89,7 @@ public class UserProfileActivity extends Activity {
                 intent.putExtra("userInterests", users.getInterests());
                 intent.putExtra("userEmail", email);
                 intent.putExtra("userPicture", pic);
+                intent.putExtra("userRotate", rotate);
                 finish();
                 startActivity(intent);
             }
@@ -126,5 +134,37 @@ public class UserProfileActivity extends Activity {
             return users;
         }
         
+    }
+
+    public static int getCameraPhotoOrientation(String imagePath) {
+        int rotate = 0;
+        try {
+            ExifInterface exif  = null;
+            try {
+                exif = new ExifInterface(imagePath);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            int orientation = exif.getAttributeInt(
+                    ExifInterface.TAG_ORIENTATION, 0);
+            switch (orientation) {
+
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    rotate = 180;
+                    break;
+
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    rotate = 90;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    rotate = 90;
+                    break;
+                default:
+                    rotate = 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rotate;
     }
 }

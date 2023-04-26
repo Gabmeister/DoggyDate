@@ -4,9 +4,11 @@ package com.example.doggydateapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -74,12 +76,15 @@ public class CreateUserActivity extends Activity {
         String currentLocation = i.getStringExtra("userLocation");
         String currentJob = i.getStringExtra("userJob");
         String currentSchool = i.getStringExtra("userSchool");
-        String currentInterests = i.getStringExtra("userInterests");
+        String currInterests = i.getStringExtra("userInterests");
+        String currentInterests = checkCurrentInterests(currInterests);
         byte[] pic = i.getByteArrayExtra("userPicture");
+        Integer rotate = i.getIntExtra("userRotate", 0);
 
         try {
             Bitmap bmp = BitmapFactory.decodeByteArray(pic, 0, pic.length);
             profilePicture.setImageBitmap(bmp);
+            profilePicture.setRotation(rotate);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -92,28 +97,22 @@ public class CreateUserActivity extends Activity {
         inputLocation.setText(currentLocation);
         inputJob.setText(currentJob);
         inputSchool.setText(currentSchool);
-
         String[] splitInterests = currentInterests.split(",");
-        Log.i("string", splitInterests[0].trim());
-        Log.i("string", splitInterests[1].trim());
-        Log.i("string", splitInterests[2].trim());
 
 
-        for(int x = 0; x < noSelection.length; x++)
-        {
-            if(splitInterests[0].trim().equalsIgnoreCase(noSelection[x].trim()))
-            {
+        for (int x = 0; x < noSelection.length; x++) {
+            if (splitInterests[0].trim().equalsIgnoreCase(noSelection[x].trim())) {
                 interestSpinner1.setSelection(x);
             }
-            if(splitInterests[1].trim().equalsIgnoreCase(noSelection[x].trim()))
-            {
+            if (splitInterests[1].trim().equalsIgnoreCase(noSelection[x].trim())) {
                 interestSpinner2.setSelection(x);
             }
-            if(splitInterests[2].trim().equalsIgnoreCase(noSelection[x].trim()))
-            {
+            if (splitInterests[2].trim().equalsIgnoreCase(noSelection[x].trim())) {
                 interestSpinner3.setSelection(x);
             }
         }
+
+
 
 
 
@@ -153,39 +152,31 @@ public class CreateUserActivity extends Activity {
                 }
                 else
                 {
-                    if (interest1.contains("Select"))
+                    if (interest1.contains("Select") || interest2.contains("Select") || interest3.contains("Select"))
                     {
-
-                    } else {
-                        interests.append(interest1).append(", ");
+                        Toast.makeText(getApplicationContext(), "You must select 3 interests", Toast.LENGTH_LONG).show();
                     }
-                    if (interest2.contains("Select"))
+                    else
                     {
+                        interests.append(interest1).append(", ").append(interest2).append(", ").append(interest3);
 
-                    } else {
-                        interests.append(interest2).append(", ");
+                        UserDao userDao = new UserDao();
+
+                        try {
+                            userDao.editUserProfile(user, gender, sexuality, location, bio, education, job, interests.toString());
+
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        } finally {
+                            Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                            intent.putExtra("userEmail", user);
+                            finish();
+                            startActivity(intent);
+                        }
                     }
-                    if (interest3.contains("Select"))
-                    {
-
-                    } else {
-                        interests.append(interest3);
-                    }
 
 
-                    UserDao userDao = new UserDao();
 
-                    try {
-                        userDao.editUserProfile(user, gender, sexuality, location, bio, education, job, interests.toString());
-
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    } finally {
-                        Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
-                        intent.putExtra("userEmail", user);
-                        finish();
-                        startActivity(intent);
-                    }
                 }
 
             }
@@ -240,13 +231,18 @@ public class CreateUserActivity extends Activity {
             Log.i("imageuri", String.valueOf(imageUri));
             try {
 
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                //Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                Bitmap bitmap = decodeSampledBitmap(FilePathStr, 800, 700);
+
 
                 Intent i = getIntent();
                 String user = i.getStringExtra("userEmail");
                 profilePicture.setImageBitmap(bitmap);
+                Integer rotateImage = getCameraPhotoOrientation(FilePathStr);
+
+                profilePicture.setRotation(rotateImage);
                 UserDao userDao = new UserDao();
-                userDao.uploadUserImage(bitmap, user);
+                userDao.uploadUserImage(bitmap, user, rotateImage);
 
 
 
@@ -261,4 +257,86 @@ public class CreateUserActivity extends Activity {
         }
     }
 
+    public static Bitmap decodeSampledBitmap(String res,
+                                                         int reqWidth, int reqHeight) {
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(res, options);
+
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(res, options);
+    }
+
+    public static int calculateInSampleSize(
+            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            final int halfHeight = height / 2;
+            final int halfWidth = width / 2;
+
+            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+            // height and width larger than the requested height and width.
+            while ((halfHeight / inSampleSize) >= reqHeight
+                    && (halfWidth / inSampleSize) >= reqWidth) {
+                inSampleSize *= 2;
+            }
+        }
+
+        return inSampleSize;
+    }
+
+    public static int getCameraPhotoOrientation(String imagePath) {
+        int rotate = 0;
+        try {
+            ExifInterface exif  = null;
+            try {
+                exif = new ExifInterface(imagePath);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            int orientation = exif.getAttributeInt(
+                    ExifInterface.TAG_ORIENTATION, 0);
+            switch (orientation) {
+
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    rotate = 180;
+                    break;
+
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    rotate = 90;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    rotate = 270;
+                    break;
+                default:
+                    rotate = 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rotate;
+    }
+
+    public String checkCurrentInterests(String interests)
+    {
+        if(interests != null)
+        {
+            return interests;
+        }
+        else
+        {
+            return "Books, Dancing, Drinking";
+        }
+    }
 }
