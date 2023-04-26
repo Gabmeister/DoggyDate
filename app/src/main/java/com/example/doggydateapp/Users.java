@@ -119,4 +119,5 @@ public class Users {
     public void setProfilePicture(byte[] profilePicture) {
         this.profilePicture = profilePicture;
     }
+
 }
