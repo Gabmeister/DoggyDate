@@ -174,7 +174,7 @@ public class CreateUserActivity extends Activity {
 //            }
 //      });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.match);
+        bottomNavigationView.setSelectedItemId(R.id.profile); //set navbar highlight to profile tab.
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

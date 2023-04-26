@@ -19,7 +19,7 @@ public class ChatActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_chat);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.chat);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

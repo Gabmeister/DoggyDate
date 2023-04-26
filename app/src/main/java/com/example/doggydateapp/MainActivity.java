@@ -13,6 +13,11 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import com.example.doggydateapp.UserDao;
+import com.example.doggydateapp.Users;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -20,14 +25,25 @@ public class MainActivity extends AppCompatActivity {
 
     private Button likeButton;
     private Button dislikeButton;
+    private Queue<Users> usersQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        usersQueue = new LinkedList<>();
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
+
+        UserDao userDao = new UserDao();
+        try {
+            ArrayList<Users> allUsers = userDao.retrieveAllUsers(email);
+            usersQueue.addAll(allUsers);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
 
         likeButton = findViewById(R.id.like_button);
