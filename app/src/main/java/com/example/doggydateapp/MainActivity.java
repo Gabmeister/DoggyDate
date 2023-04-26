@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -31,6 +33,26 @@ public class MainActivity extends AppCompatActivity {
     private Button likeButton;
     private Button dislikeButton;
     private Queue<Users> usersQueue;
+
+    private class DecodeImageTask extends AsyncTask<byte[], Void, Bitmap> {
+
+        private ImageView imageView;
+
+        public DecodeImageTask(ImageView imageView) {
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected Bitmap doInBackground(byte[]... bytes) {
+            byte[] data = bytes[0];
+            return BitmapFactory.decodeByteArray(data, 0, data.length);
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            imageView.setImageBitmap(bitmap);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (currentUser != null) {
                     ImageView userImage = findViewById(R.id.profile_image); //update the ImageView to display the user image
-                    userImage.setImageBitmap(BitmapFactory.decodeByteArray(currentUser.getProfilePicture(), 0, currentUser.getProfilePicture().length));
+                    new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
                     nameTextView.setText(currentUser.getName()); //update name to new user in queue
                     usersQueue.offer(currentUser); // Add the user to the end of the queue
                 }
@@ -82,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (currentUser != null) {
                     ImageView userImage = findViewById(R.id.profile_image); //update the ImageView to display the user image
-                    userImage.setImageBitmap(BitmapFactory.decodeByteArray(currentUser.getProfilePicture(), 0, currentUser.getProfilePicture().length));
+                    new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
                     nameTextView.setText(currentUser.getName()); //update name to new user in queue
                     usersQueue.offer(currentUser); //add the user to the end of the queue
                 }
