@@ -145,6 +145,7 @@
         android:layout_marginTop="18dp"
         android:background="@color/doggydateRed"
         android:text="Register"
+        android:textColor="#212121"
         app:iconTint="@color/Red"
         app:layout_constraintEnd_toEndOf="@+id/insertConfirmPassword"
         app:layout_constraintHorizontal_bias="0.0"

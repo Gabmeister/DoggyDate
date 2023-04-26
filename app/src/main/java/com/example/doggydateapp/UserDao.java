@@ -198,6 +198,48 @@ public class UserDao extends Dbconnector {
         return u;     // u may be null
     }
 
+    public void editUserProfile(String user, String gender, String sexuality, String location, String bio, String education, String job, String interests) throws SQLException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = this.conToDB();
+
+            String query = "UPDATE public.\"Users\" SET \"Gender\" = ?, \"Sexuality\" = ?, \"Location\" = ?, \"Bio\" = ?, \"School/College\" = ?, \"Job\" = ?, \"Interests\" = ? WHERE \"Email\" = ?;";
+            ps = con.prepareStatement(query);
+            ps.setString(1, gender);
+            ps.setString(2, sexuality);
+            ps.setString(3, location);
+            ps.setString(4, bio);
+            ps.setString(5, education);
+            ps.setString(6, job);
+            ps.setString(7, interests);
+            ps.setString(8, user);
+            ps.executeQuery();
+
+
+        } catch (SQLException e) {
+            throw new SQLException("editUser " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+
+            } catch (SQLException e) {
+                throw new SQLException("editUser" + e.getMessage());
+            }
+        }
+
+    }
+
     public void uploadUserImage(Bitmap bmp, String user) throws SQLException, FileNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;

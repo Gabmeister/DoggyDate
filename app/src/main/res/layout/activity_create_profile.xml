@@ -28,6 +28,7 @@
         android:layout_height="680dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -52,7 +53,8 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:background="@color/doggydateRed"
-                android:text="Upload Photo" />
+                android:text="Upload Photo"
+                android:textColor="#212121" />
 
             <TextView
                 android:id="@+id/bioTitle"
