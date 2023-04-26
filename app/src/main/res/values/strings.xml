@@ -22,4 +22,16 @@
         <item>Movies</item>
         <item>Dancing</item>
     </string-array>
+
+    <string-array name="contacts">
+        <item>Stephan</item>
+        <item>Joey</item>
+        <item>Michael</item>
+    </string-array>
+
+    <string-array name="messages">
+        <item>Hallo, want to go for some coffee?</item>
+        <item>How you doin?</item>
+        <item>hey there! :D </item>
+    </string-array>
 </resources>
