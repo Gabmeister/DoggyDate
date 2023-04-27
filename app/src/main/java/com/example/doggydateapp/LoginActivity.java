@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.SQLException;
+import java.util.Locale;
 
 public class LoginActivity extends Activity {
 
@@ -37,8 +38,9 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //code for login button click event listener
-                String uname = String.valueOf(emailEditText.getText());
+                String email = String.valueOf(emailEditText.getText());
                 String pword = String.valueOf(passwordEditText.getText());
+                String uname = email.toLowerCase(Locale.ROOT);
 
                 if (uname.trim().equals(""))
                 {
@@ -64,7 +66,7 @@ public class LoginActivity extends Activity {
                             }
                         } catch (NullPointerException e)
                         {
-                            Toast.makeText(getApplicationContext(), "No users registered under this email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Incorrect username or password", Toast.LENGTH_LONG).show();
                         }
 
 
