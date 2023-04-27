@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button dislikeButton;
     private Queue<Users> usersQueue;
 
-    private class DecodeImageTask extends AsyncTask<byte[], Void, Bitmap> {
+    private static class DecodeImageTask extends AsyncTask<byte[], Void, Bitmap> {
 
         private ImageView imageView;
 
@@ -44,8 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Bitmap doInBackground(byte[]... bytes) {
-            byte[] data = bytes[0];
-            return BitmapFactory.decodeByteArray(data, 0, data.length);
+            try {
+                byte[] data = bytes[0];
+                return BitmapFactory.decodeByteArray(data, 0, data.length);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override
@@ -59,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView nameTextView = findViewById(R.id.name_text_view);
+        TextView ageTextView = findViewById(R.id.age_text_view);
         usersQueue = new LinkedList<>();
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
@@ -74,8 +80,14 @@ public class MainActivity extends AppCompatActivity {
         //Code to display first user in queue upon launch
         Users currentUser = usersQueue.poll();
         ImageView userImage = findViewById(R.id.profile_image);
-        userImage.setImageBitmap(BitmapFactory.decodeByteArray(currentUser.getProfilePicture(), 0, currentUser.getProfilePicture().length));
-        nameTextView.setText(currentUser.getName());
+        try {
+            userImage.setImageBitmap(BitmapFactory.decodeByteArray(currentUser.getProfilePicture(), 0, currentUser.getProfilePicture().length));
+            nameTextView.setText(currentUser.getName());
+            ageTextView.setText(currentUser.getAge());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "No users found for display", Toast.LENGTH_LONG).show();
+        }
 
         likeButton = findViewById(R.id.like_button);
         dislikeButton = findViewById(R.id.dislike_button);
@@ -89,9 +101,15 @@ public class MainActivity extends AppCompatActivity {
 
                 if (currentUser != null) {
                     ImageView userImage = findViewById(R.id.profile_image); //update the ImageView to display the user image
-                    new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
-                    nameTextView.setText(currentUser.getName()); //update name to new user in queue
-                    usersQueue.offer(currentUser); // Add the user to the end of the queue
+                    try {
+                        new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
+                        nameTextView.setText(currentUser.getName()); //update name to new user in queue
+                        ageTextView.setText(currentUser.getAge());
+                        usersQueue.offer(currentUser); //add the user to the end of the queue
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "No more users found", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
@@ -104,9 +122,15 @@ public class MainActivity extends AppCompatActivity {
 
                 if (currentUser != null) {
                     ImageView userImage = findViewById(R.id.profile_image); //update the ImageView to display the user image
-                    new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
-                    nameTextView.setText(currentUser.getName()); //update name to new user in queue
-                    usersQueue.offer(currentUser); //add the user to the end of the queue
+                    try {
+                        new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
+                        nameTextView.setText(currentUser.getName()); //update name to new user in queue
+                        ageTextView.setText(currentUser.getAge());
+                        usersQueue.offer(currentUser); //add the user to the end of the queue
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "No more users found", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
