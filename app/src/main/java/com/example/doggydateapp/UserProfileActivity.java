@@ -49,7 +49,7 @@ public class UserProfileActivity extends Activity {
         Log.i("user", users.getName());
 
         userNameText.setText(users.getName());
-        bioText.setText("About Me: " + users.getBio());
+        bioText.setText(users.getBio());
         ageText.setText(users.getAge());
         locationText.setText(users.getLocation());
         genderText.setText(users.getGender());

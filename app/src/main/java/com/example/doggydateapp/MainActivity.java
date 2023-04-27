@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView userImage = findViewById(R.id.profile_image);
         try {
             userImage.setImageBitmap(BitmapFactory.decodeByteArray(currentUser.getProfilePicture(), 0, currentUser.getProfilePicture().length));
+            userImage.setRotation(currentUser.getRotate());
             nameTextView.setText(currentUser.getName());
             ageTextView.setText(currentUser.getAge());
         } catch (NullPointerException e) {
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     ImageView userImage = findViewById(R.id.profile_image); //update the ImageView to display the user image
                     try {
                         new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
+                        userImage.setRotation(currentUser.getRotate());
                         nameTextView.setText(currentUser.getName()); //update name to new user in queue
                         ageTextView.setText(currentUser.getAge());
                         usersQueue.offer(currentUser); //add the user to the end of the queue
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     ImageView userImage = findViewById(R.id.profile_image); //update the ImageView to display the user image
                     try {
                         new DecodeImageTask(userImage).execute(currentUser.getProfilePicture());
+                        userImage.setRotation(currentUser.getRotate());
                         nameTextView.setText(currentUser.getName()); //update name to new user in queue
                         ageTextView.setText(currentUser.getAge());
                         usersQueue.offer(currentUser); //add the user to the end of the queue
