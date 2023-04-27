@@ -55,9 +55,7 @@ drawable menu_match
 drawable profile_image_placeholder
 drawable splash
 drawable splashbg
-id Cardview
 id NoAccount
-id TextViewMessage
 id ageText
 id age_text_view
 id alreadyHaveAccount
@@ -67,19 +65,16 @@ id bottomNavigationView
 id bottom_navigation
 id bottom_navigation_account
 id bottom_navigation_chat
-id box
 id buttonRegister
-id cardView
 id chat
 id circular_button
-id contactsRecyclerView
+id contactsListView
 id continueButton
 id dislike_button
 id forgotpassword
 id frameLayout
 id genderText
 id genderTitle
-id imageView
 id inputAge
 id inputBio
 id inputDogAge
@@ -112,7 +107,7 @@ id loginText
 id login_button
 id logo
 id match
-id messagesRecyclerView
+id messagesListView
 id name_text_view
 id profile
 id profilePic
@@ -139,7 +134,6 @@ layout activity_login
 layout activity_main
 layout activity_register
 layout activity_user_profile
-layout recyclerviewmessages
 menu bottom_navbar
 mipmap ic_launcher
 mipmap ic_launcher_foreground

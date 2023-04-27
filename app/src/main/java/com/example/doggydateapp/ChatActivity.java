@@ -2,8 +2,6 @@ package com.example.doggydateapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,20 +14,11 @@ import java.util.ArrayList;
 
 public class ChatActivity extends AppCompatActivity {
 
-    ArrayList<Messages> messages = new ArrayList<>();
-    int[] contactImages = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
-        RecyclerView recyclerView = findViewById(R.id.messagesRecyclerView);
-        setMessages();
-
-        MessagesAdapter messagesAdapter = new MessagesAdapter(this, messages);
-        recyclerView.setAdapter(messagesAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+       
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
 
@@ -53,6 +42,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     case R.id.profile:
 
+
                         Intent profileIntent = new Intent(ChatActivity.this, UserProfileActivity.class);
                         profileIntent.putExtra("userEmail", email);
                         startActivity(profileIntent);
@@ -61,12 +51,5 @@ public class ChatActivity extends AppCompatActivity {
                 return false;
             }
         });
-    }
-    private void setMessages(){
-        String[] messagesarray = getResources().getStringArray(R.array.messages);
-
-        for (int i = 0;  i<messagesarray.length ; i++) {
-            messages.add(new Messages(messagesarray[i], contactImages[i]));
-        }
     }
 }

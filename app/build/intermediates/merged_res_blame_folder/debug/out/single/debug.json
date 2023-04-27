@@ -60,10 +60,6 @@
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-main-31:\\drawable-v24\\cleanback.png"
     },
     {
-        "merged": "com.example.doggydateapp-merged_res-29:/layout_recyclerviewmessages.xml.flat",
-        "source": "com.example.doggydateapp-main-31:/layout/recyclerviewmessages.xml"
-    },
-    {
         "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-debug-30:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },

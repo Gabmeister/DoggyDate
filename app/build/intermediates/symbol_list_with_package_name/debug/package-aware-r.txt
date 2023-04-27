@@ -2853,7 +2853,6 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
-id Cardview
 id FUNCTION
 id META
 id NO_DEBUG
@@ -2865,7 +2864,6 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id TextViewMessage
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2959,13 +2957,11 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id box
 id buttonPanel
 id buttonRegister
 id cache_measures
 id callMeasure
 id cancel_button
-id cardView
 id carryVelocity
 id center
 id centerCrop
@@ -2990,7 +2986,7 @@ id collapseActionView
 id compress
 id confirm_button
 id constraint
-id contactsRecyclerView
+id contactsListView
 id container
 id content
 id contentPanel
@@ -3090,7 +3086,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id immediateStop
 id included
 id indeterminate
@@ -3170,7 +3165,7 @@ id material_timepicker_view
 id material_value_index
 id matrix
 id message
-id messagesRecyclerView
+id messagesListView
 id middle
 id mini
 id month_grid
@@ -3604,7 +3599,6 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout recyclerviewmessages
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
