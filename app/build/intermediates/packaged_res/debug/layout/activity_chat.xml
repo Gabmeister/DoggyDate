@@ -11,8 +11,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/contactsrecyclerview"
-        android:layout_alignBottom="@+id/messagesrecyclerview"
+        android:layout_alignTop="@+id/contactsRecyclerView"
+        android:layout_alignBottom="@+id/messagesRecyclerView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:text="Chats"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.326" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/contactsrecyclerview"
+        android:id="@+id/contactsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="112dp"
@@ -39,10 +39,10 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messagesrecyclerview"
+        android:id="@+id/messagesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/contactsrecyclerview"
+        android:layout_alignTop="@id/contactsRecyclerView"
         android:layout_marginBottom="256dp"
         android:orientation="vertical"
         android:paddingLeft="20dp"
@@ -70,8 +70,8 @@
         android:id="@+id/textView"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/contactsrecyclerview"
-        android:layout_alignBottom="@+id/messagesrecyclerview"
+        android:layout_alignTop="@+id/contactsRecyclerView"
+        android:layout_alignBottom="@+id/messagesRecyclerView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:text="Matches"

@@ -32,7 +32,7 @@
 19-->[androidx.core:core:1.9.0] C:\Users\C20458384\.gradle\caches\transforms-3\9811bf6e0ea8002748e1a5d1e9eb40bd\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 20
 21    <application
-21-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:9:5-44:19
+21-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:9:5-45:19
 22        android:allowBackup="true"
 22-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:10:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -96,37 +96,40 @@
 54        <activity android:name="com.example.doggydateapp.RegisterActivity" />
 54-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:40:9-54
 54-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:40:19-51
-55        <activity android:name="com.example.doggydateapp.CreateUserActivity" />
-55-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:41:9-56
-55-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:41:19-53
-56        <activity android:name="com.example.doggydateapp.ChatActivity" />
-56-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:42:9-49
-56-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:42:19-47
-57        <activity android:name="com.example.doggydateapp.UserProfileActivity" />
-57-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:43:9-66
-57-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:43:19-54
-58
-59        <provider
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-60            android:name="androidx.startup.InitializationProvider"
-60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-61            android:authorities="com.example.doggydateapp.androidx-startup"
-61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-62            android:exported="false" >
-62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-63            <meta-data
-63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-65                android:value="androidx.startup" />
-65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-66            <meta-data
-66-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-67-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-68                android:value="androidx.startup" />
-68-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-69        </provider>
-70    </application>
-71
-72</manifest>
+55        <activity
+55-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:41:9-42:54
+56            android:name="com.example.doggydateapp.CreateUserActivity"
+56-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:41:19-53
+57            android:windowSoftInputMode="adjustPan" />
+57-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:42:13-52
+58        <activity android:name="com.example.doggydateapp.ChatActivity" />
+58-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:43:9-49
+58-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:43:19-47
+59        <activity android:name="com.example.doggydateapp.UserProfileActivity" />
+59-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:44:9-66
+59-->C:\Users\C20458384\OneDrive - Technological University Dublin\Documents\DoggyDate\DoggyDate\app\src\main\AndroidManifest.xml:44:19-54
+60
+61        <provider
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+62            android:name="androidx.startup.InitializationProvider"
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+63            android:authorities="com.example.doggydateapp.androidx-startup"
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+64            android:exported="false" >
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+65            <meta-data
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+67                android:value="androidx.startup" />
+67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\C20458384\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+68            <meta-data
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+69                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+69-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+70                android:value="androidx.startup" />
+70-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\C20458384\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+71        </provider>
+72    </application>
+73
+74</manifest>

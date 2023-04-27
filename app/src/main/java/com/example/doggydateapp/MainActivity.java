@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.chat:
                         //change placeholder x.class to corresponding page.
-                        Intent intent = new Intent(MainActivity.this, ChatActivity.class); //<-- REPLACE HERE
-                        intent.putExtra("userEmail", email);
-                        startActivity(intent);
+                        Intent chat_intent = new Intent(MainActivity.this, ChatActivity.class); //<-- REPLACE HERE
+                        chat_intent.putExtra("userEmail", email);
+                        startActivity(chat_intent);
                         return true;
 
                     case R.id.profile:

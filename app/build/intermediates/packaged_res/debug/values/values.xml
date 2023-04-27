@@ -16,13 +16,18 @@
         <item>Neutral</item>
     </string-array>
     <string-array name="interests">
-        <item>Sports</item>
-        <item>Music</item>
-        <item>Politics</item>
+        <item>--Select an item--</item>
+        <item>Books</item>
+        <item>Dancing</item>
         <item>Drinking</item>
         <item>Food</item>
+        <item>Music</item>
         <item>Movies</item>
-        <item>Dancing</item>
+        <item>Photography</item>
+        <item>Politics</item>
+        <item>Sports</item>
+        <item>Travel</item>
+
     </string-array>
     <string-array name="messages">
         <item>Hallo, want to go for some coffee?</item>

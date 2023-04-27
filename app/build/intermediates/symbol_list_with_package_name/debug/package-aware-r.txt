@@ -2865,6 +2865,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id TextViewMessage
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2989,7 +2990,7 @@ id collapseActionView
 id compress
 id confirm_button
 id constraint
-id contactsrecyclerview
+id contactsRecyclerView
 id container
 id content
 id contentPanel
@@ -3126,7 +3127,6 @@ id jobTitle
 id jumpToEnd
 id jumpToStart
 id labeled
-id layer
 id layout
 id left
 id leftToRight
@@ -3170,7 +3170,7 @@ id material_timepicker_view
 id material_value_index
 id matrix
 id message
-id messagesrecyclerview
+id messagesRecyclerView
 id middle
 id mini
 id month_grid
@@ -3273,6 +3273,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView2
 id scrollable
 id search_badge
 id search_bar
@@ -3356,6 +3357,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id test
 id text
 id text2
 id textEnd
@@ -3365,7 +3367,6 @@ id textStart
 id textTop
 id textView
 id textView2
-id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon

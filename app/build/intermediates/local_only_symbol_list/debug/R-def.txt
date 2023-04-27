@@ -57,6 +57,7 @@ drawable splash
 drawable splashbg
 id Cardview
 id NoAccount
+id TextViewMessage
 id ageText
 id age_text_view
 id alreadyHaveAccount
@@ -71,7 +72,7 @@ id buttonRegister
 id cardView
 id chat
 id circular_button
-id contactsrecyclerview
+id contactsRecyclerView
 id continueButton
 id dislike_button
 id forgotpassword
@@ -104,7 +105,6 @@ id interestsText
 id interestsTitle
 id jobText
 id jobTitle
-id layer
 id like_button
 id locationText
 id locationTitle
@@ -112,7 +112,7 @@ id loginText
 id login_button
 id logo
 id match
-id messagesrecyclerview
+id messagesRecyclerView
 id name_text_view
 id profile
 id profilePic
@@ -122,12 +122,13 @@ id registerTextView
 id relativeLayout3
 id schoolText
 id schoolTitle
+id scrollView2
 id sexualityText
 id sexualityTitle
 id submitButton
+id test
 id textView
 id textView2
-id textView3
 id uploadButton
 id uploadPhoto
 id userNameText

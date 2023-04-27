@@ -28,6 +28,7 @@
         android:layout_height="680dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -41,7 +42,7 @@
                 android:layout_height="380dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/dislike_button"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
                 android:visibility="visible" />
 
             <Button
@@ -51,8 +52,9 @@
                 android:layout_marginLeft="40sp"
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
-                android:background="@color/purple_500"
-                android:text="Upload Photo" />
+                android:background="@color/doggydateRed"
+                android:text="Upload Photo"
+                android:textColor="#212121" />
 
             <TextView
                 android:id="@+id/bioTitle"
@@ -76,7 +78,7 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:hint="About Me..."
-                android:inputType="textMultiLine|textPersonName"
+                android:inputType="textMultiLine|textCapSentences"
                 android:maxLines="20"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -108,7 +110,7 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:hint="Gender..."
-                android:inputType="textMultiLine|textPersonName"
+                android:inputType="textCapWords"
                 android:maxLines="20"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -140,7 +142,7 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:hint="Sexuality..."
-                android:inputType="textMultiLine|textPersonName"
+                android:inputType="textCapWords"
                 android:maxLines="20"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -172,7 +174,7 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:hint="Location..."
-                android:inputType="textMultiLine|textPersonName"
+                android:inputType="textCapWords"
                 android:maxLines="20"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -204,7 +206,7 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:hint="School/College"
-                android:inputType="textMultiLine|textPersonName"
+                android:inputType="textMultiLine|textCapWords"
                 android:maxLines="20"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -236,7 +238,7 @@
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:hint="Job..."
-                android:inputType="textMultiLine|textPersonName"
+                android:inputType="textMultiLine|textCapWords"
                 android:maxLines="20"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -266,7 +268,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="20sp"
-                android:background="@color/black"
+                android:background="@color/doggydateRed"
                 android:entries="@array/interests"
                 android:gravity="center"
                 android:paddingTop="30sp"
@@ -282,7 +284,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="20sp"
-                android:background="@color/black"
+                android:background="@color/doggydateRed"
                 android:entries="@array/interests"
                 android:paddingTop="30sp"
                 android:paddingBottom="30sp"
@@ -297,7 +299,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="20sp"
-                android:background="@color/black"
+                android:background="@color/doggydateRed"
                 android:entries="@array/interests"
                 android:paddingTop="30sp"
                 android:paddingBottom="30sp"
@@ -311,7 +313,7 @@
                 android:layout_marginTop="40sp"
                 android:layout_marginRight="40sp"
                 android:layout_marginBottom="40sp"
-                android:background="@color/purple_500"
+                android:background="@color/doggydateRed"
                 android:text="Submit Changes" />
         </LinearLayout>
     </ScrollView>

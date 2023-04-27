@@ -2,6 +2,8 @@ package com.example.doggydateapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,16 +22,17 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        RecyclerView recyclerView = findViewById(R.id.messagesRecyclerView);
         setMessages();
+
+        MessagesAdapter messagesAdapter = new MessagesAdapter(this, messages);
+        recyclerView.setAdapter(messagesAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> e742815515d6dc73e07abb07df76ffdded9853ec
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_chat);
         bottomNavigationView.setSelectedItemId(R.id.chat);
 
@@ -49,7 +52,6 @@ public class ChatActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-
 
                         Intent profileIntent = new Intent(ChatActivity.this, UserProfileActivity.class);
                         profileIntent.putExtra("userEmail", email);

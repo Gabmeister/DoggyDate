@@ -52,7 +52,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.doggydateapp.RegisterActivity" />
-        <activity android:name="com.example.doggydateapp.CreateUserActivity" />
+        <activity
+            android:name="com.example.doggydateapp.CreateUserActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.example.doggydateapp.ChatActivity" />
         <activity android:name="com.example.doggydateapp.UserProfileActivity" />
 

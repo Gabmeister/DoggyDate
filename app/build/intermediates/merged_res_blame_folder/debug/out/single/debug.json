@@ -16,6 +16,10 @@
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-main-31:\\layout\\activity_register.xml"
     },
     {
+        "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\drawable-hdpi_img1.png.flat",
+        "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-debug-30:\\drawable-hdpi\\img1.png"
+    },
+    {
         "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\drawable_ic_baseline_person_search_24.xml.flat",
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-main-31:\\drawable\\ic_baseline_person_search_24.xml"
     },
@@ -176,6 +180,10 @@
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-debug-30:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+        "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\drawable-hdpi_img3.png.flat",
+        "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-debug-30:\\drawable-hdpi\\img3.png"
+    },
+    {
         "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\layout_activity_create_profile.xml.flat",
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-main-31:\\layout\\activity_create_profile.xml"
     },
@@ -234,6 +242,10 @@
     {
         "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\drawable_menu_account.xml.flat",
         "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-debug-30:\\drawable\\menu_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\drawable-hdpi_img2.png.flat",
+        "source": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-debug-30:\\drawable-hdpi\\img2.png"
     },
     {
         "merged": "C:\\Users\\C20458384\\.gradle\\daemon\\7.4\\com.example.doggydateapp-merged_res-29:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
