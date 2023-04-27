@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/alreadyHaveAccount"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cleanback">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoText="true"
+        android:text="DoggyDate"
+        android:textColor="#432929"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="680dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/profilePic"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/uploadPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:background="@color/doggydateRed"
+                android:text="Upload Photo"
+                android:textColor="#212121" />
+
+            <TextView
+                android:id="@+id/bioTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="25sp"
+                android:text="Write About Yourself:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="40sp"
+                android:background="@drawable/inputbg"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:hint="About Me..."
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLines="20"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/genderTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="What is your Gender?"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="40sp"
+                android:background="@drawable/inputbg"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:hint="Gender..."
+                android:inputType="textCapWords"
+                android:maxLines="20"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/sexualityTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="What is your sexuality?"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputSexuality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="40sp"
+                android:background="@drawable/inputbg"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:hint="Sexuality..."
+                android:inputType="textCapWords"
+                android:maxLines="20"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/locationTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="What is your area?"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="40sp"
+                android:background="@drawable/inputbg"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:hint="Location..."
+                android:inputType="textCapWords"
+                android:maxLines="20"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/schoolTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="Where did you go to school/college?"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputSchool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="40sp"
+                android:background="@drawable/inputbg"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:hint="School/College"
+                android:inputType="textMultiLine|textCapWords"
+                android:maxLines="20"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/jobTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="What is your occupation?"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputJob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="40sp"
+                android:background="@drawable/inputbg"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:hint="Job..."
+                android:inputType="textMultiLine|textCapWords"
+                android:maxLines="20"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#432929" />
+
+            <TextView
+                android:id="@+id/interestsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="15sp"
+                android:text="Please select 3 of your interests below:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/interestsSpinner1"
+                style="@android:style/Widget.Material.Light.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/doggydateRed"
+                android:entries="@array/interests"
+                android:gravity="center"
+                android:paddingTop="30sp"
+                android:paddingBottom="30sp"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/interestsSpinner2"
+                style="@android:style/Widget.Material.Light.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/doggydateRed"
+                android:entries="@array/interests"
+                android:paddingTop="30sp"
+                android:paddingBottom="30sp"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/interestsSpinner3"
+                style="@android:style/Widget.Material.Light.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/doggydateRed"
+                android:entries="@array/interests"
+                android:paddingTop="30sp"
+                android:paddingBottom="30sp"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginRight="40sp"
+                android:layout_marginBottom="40sp"
+                android:background="@color/doggydateRed"
+                android:text="Submit Changes" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navbar">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,12 @@ public class ChatActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         String email = i.getStringExtra("userEmail");
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e742815515d6dc73e07abb07df76ffdded9853ec
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_chat);
         bottomNavigationView.setSelectedItemId(R.id.chat);
 
