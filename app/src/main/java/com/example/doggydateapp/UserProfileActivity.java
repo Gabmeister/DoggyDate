@@ -74,8 +74,8 @@ public class UserProfileActivity extends Activity {
 
         dogNameText.setText(dog.getName());
         dogAgeText.setText(dog.getAge());
-        dogBioText.setText(dog.getBio());
-        dogBreedText.setText(dog.getBreed());
+        dogBioText.setText(dog.getBreed());
+        dogBreedText.setText(dog.getBio());
         dogSizeText.setText(dog.getSize());
         dogTemperament.setText(dog.getTemperament());
         Integer dogRotate = dog.getRotate();

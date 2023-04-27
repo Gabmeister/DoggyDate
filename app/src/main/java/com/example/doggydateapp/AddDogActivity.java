@@ -48,7 +48,7 @@ public class AddDogActivity extends Activity {
         inputDogAge = findViewById(R.id.inputDogAge);
         inputDogSize = findViewById(R.id.inputDogSize);
         inputDogTemperament= findViewById(R.id.inputDogTemperment);
-        inputDogBio= findViewById(R.id.inputDogName);
+        inputDogBio= findViewById(R.id.inputDogBio);
         inputDogBreed= findViewById(R.id.inputBreed);
         submitButton = findViewById(R.id.submitDog);
         uploadPhoto = findViewById(R.id.uploadPhoto2);
