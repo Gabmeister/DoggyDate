@@ -241,6 +241,134 @@ public class UserDao extends Dbconnector {
 
     }
 
+    public void updateDog(String email, String name, String age, String breed, String size, String temperament, String bio) throws SQLException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = this.conToDB();
+
+            String query = "UPDATE public.\"Users\" SET \"dogName\" = ?, \"dogAge\" = ?, \"dogBreed\" = ?, \"dogSize\" = ?, \"dogTemperment\" = ?, \"dogBio\" = ? WHERE \"Email\" = ?;";
+            ps = con.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, age);
+            ps.setString(3, breed);
+            ps.setString(4, size);
+            ps.setString(5, temperament);
+            ps.setString(6, bio);
+            ps.setString(7, email);
+            ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+
+            } catch (SQLException e) {
+                throw new SQLException("editUser" + e.getMessage());
+            }
+        }
+    }
+
+    public void removeDog(String email) throws SQLException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = this.conToDB();
+          
+            String query = "UPDATE public.\"Users\" SET \"dogName\" = ?, \"dogAge\" = ?, \"dogBreed\" = ?, \"dogSize\" = ?, \"dogTemperment\" = ?, \"dogBio\" = ?, \"dogImage\" = ? WHERE \"Email\" = ?;";
+            ps = con.prepareStatement(query);
+            ps.setString(1, null);
+            ps.setString(2, null);
+            ps.setString(3, null);
+            ps.setString(4, null);
+            ps.setString(5, null);
+            ps.setString(6, null);
+            ps.setBytes(7, null);
+            ps.setString(8, email);
+            ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+
+            } catch (SQLException e) {
+                throw new SQLException("editUser" + e.getMessage());
+            }
+        }
+    }
+
+    public Dog retrieveDog (String email) throws SQLException {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Dog d = null;
+        try {
+            con = this.conToDB();
+
+            String query = "SELECT * FROM public.\"Users\" WHERE \"Email\" = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1, email);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String breed = rs.getString("dogBreed");
+                String name = rs.getString("dogName");
+                String age = rs.getString("dogAge");
+                String size = rs.getString("dogSize");
+                String temperament = rs.getString("dogTemperment");
+                String bio = rs.getString("dogBio");
+                byte[] picture = rs.getBytes("dogImage");
+                Integer rotate = rs.getInt("dogRotate");
+
+                Log.i("bytearray", String.valueOf(picture));
+
+                d = new Dog(name, age, breed, size, temperament, bio, picture, rotate);
+
+            }
+        } catch (SQLException e) {
+            throw new SQLException("findUserByUsernamePassword " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                throw new SQLException("findUserByUsernamePassword" + e.getMessage());
+            }
+        }
+        return d;     // u may be null
+    }
+
     public void uploadUserImage(Bitmap bmp, String user, Integer rotate) throws SQLException, FileNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;
@@ -255,6 +383,48 @@ public class UserDao extends Dbconnector {
             ByteArrayInputStream byteStream = new ByteArrayInputStream(byteArray);
 
             String query = "UPDATE public.\"Users\" SET \"Image\" = ?, \"Rotate\" = ? WHERE \"Email\" = ?;";
+            ps = con.prepareStatement(query);
+            ps.setBinaryStream(1, byteStream, byteArray.length);
+            ps.setString(3, user);
+            ps.setInt(2, rotate);
+            Log.i("fileupload", String.valueOf(ps));
+            ps.executeQuery();
+
+
+        } catch (SQLException e) {
+            throw new SQLException("uploadImage " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+
+            } catch (SQLException e) {
+                throw new SQLException("uploadImage" + e.getMessage());
+            }
+        }
+    }
+
+    public void uploadDogImage(Bitmap bmp, String user, Integer rotate) throws SQLException, FileNotFoundException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = this.conToDB();
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.JPEG,80,stream);
+            byte[] byteArray = stream.toByteArray();
+            ByteArrayInputStream byteStream = new ByteArrayInputStream(byteArray);
+
+            String query = "UPDATE public.\"Users\" SET \"dogImage\" = ?, \"dogRotate\" = ? WHERE \"Email\" = ?;";
             ps = con.prepareStatement(query);
             ps.setBinaryStream(1, byteStream, byteArray.length);
             ps.setString(3, user);

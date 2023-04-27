@@ -12,12 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -33,6 +36,8 @@ public class UserProfileActivity extends Activity {
         String email = i.getStringExtra("userEmail");
 
         Button editProfile = (Button) findViewById(R.id.circular_button);
+        Button addDog = (Button) findViewById(R.id.addDog);
+        Button clearDog = (Button) findViewById(R.id.removeDog);
 
         TextView userNameText = (TextView) findViewById(R.id.userNameText);
         TextView bioText = (TextView) findViewById(R.id.bioText);
@@ -45,7 +50,16 @@ public class UserProfileActivity extends Activity {
         TextView interestsText = (TextView) findViewById(R.id.interestsText);
         ImageView profilePicture = (ImageView) findViewById(R.id.profilePicture);
 
+        TextView dogNameText = (TextView) findViewById(R.id.dogNameText);
+        TextView dogAgeText = (TextView) findViewById(R.id.dogAgeText);
+        TextView dogBioText = (TextView)  findViewById(R.id.dogBio);
+        TextView dogBreedText = (TextView) findViewById(R.id.dogBreed);
+        TextView dogSizeText = (TextView) findViewById(R.id.dogSize);
+        TextView dogTemperament = (TextView) findViewById(R.id.dogTemperament);
+        ImageView dogProfilePicture = (ImageView) findViewById(R.id.dogProfilePicture);
+
         Users users = pullUserData(email);
+        Dog dog = pullDogData(email);
         Log.i("user", users.getName());
 
         userNameText.setText(users.getName());
@@ -58,18 +72,32 @@ public class UserProfileActivity extends Activity {
         jobText.setText(users.getJob());
         interestsText.setText(users.getInterests());
 
+        dogNameText.setText(dog.getName());
+        dogAgeText.setText(dog.getAge());
+        dogBioText.setText(dog.getBio());
+        dogBreedText.setText(dog.getBreed());
+        dogSizeText.setText(dog.getSize());
+        dogTemperament.setText(dog.getTemperament());
+        Integer dogRotate = dog.getRotate();
+
         Integer rotate = users.getRotate();
 
         Log.i("bytearray", String.valueOf(users.getProfilePicture()));
         byte[] pic = users.getProfilePicture();
+        byte[] dogPic = dog.getPicture();
 
         try {
             Bitmap bmp = BitmapFactory.decodeByteArray(pic, 0, pic.length);
-
             profilePicture.setImageBitmap(bmp);
             profilePicture.setRotation(rotate);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
-
+        try {
+            Bitmap bmp = BitmapFactory.decodeByteArray(dogPic, 0, dogPic.length);
+            dogProfilePicture.setImageBitmap(bmp);
+            dogProfilePicture.setRotation(dogRotate);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -96,6 +124,29 @@ public class UserProfileActivity extends Activity {
 
         });
 
+        addDog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addDog = new Intent(UserProfileActivity.this, AddDogActivity.class);
+                addDog.putExtra("userEmail", email);
+                startActivity(addDog);
+            }
+        });
+
+        clearDog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    UserDao userDao = new UserDao();
+                    userDao.removeDog(email);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                Toast.makeText(getApplicationContext(), "Dog data has been removed", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_account);
         bottomNavigationView.setSelectedItemId(R.id.profile);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -103,14 +154,16 @@ public class UserProfileActivity extends Activity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.match:
-                        Intent intent = new Intent(UserProfileActivity.this, MainActivity.class);
-                        intent.putExtra("userEmail", email);
-                        startActivity(intent);
+                        finish();
+//                        Intent intent = new Intent(UserProfileActivity.this, MainActivity.class);
+//                        intent.putExtra("userEmail", email);
+//                        startActivity(intent);
                         return true;
 
                     case R.id.chat:
                         Intent chatIntent = new Intent(UserProfileActivity.this, ChatActivity.class);
                         chatIntent.putExtra("userEmail", email);
+                        finish();
                         startActivity(chatIntent);
                         return true;
 
@@ -120,6 +173,20 @@ public class UserProfileActivity extends Activity {
                 return false;
             }
         });
+    }
+
+    private Dog pullDogData(String email) {
+        Dog dog = null;
+        try {
+            UserDao userDao = new UserDao();
+            dog = userDao.retrieveDog(email);
+//            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            return dog;
+        }
+
     }
 
     public Users pullUserData(String email) {
@@ -136,35 +203,5 @@ public class UserProfileActivity extends Activity {
         
     }
 
-    public static int getCameraPhotoOrientation(String imagePath) {
-        int rotate = 0;
-        try {
-            ExifInterface exif  = null;
-            try {
-                exif = new ExifInterface(imagePath);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            int orientation = exif.getAttributeInt(
-                    ExifInterface.TAG_ORIENTATION, 0);
-            switch (orientation) {
 
-                case ExifInterface.ORIENTATION_ROTATE_180:
-                    rotate = 180;
-                    break;
-
-                case ExifInterface.ORIENTATION_ROTATE_90:
-                    rotate = 90;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_270:
-                    rotate = 90;
-                    break;
-                default:
-                    rotate = 0;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rotate;
-    }
 }

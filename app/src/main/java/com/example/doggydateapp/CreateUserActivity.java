@@ -141,9 +141,6 @@ public class CreateUserActivity extends Activity {
                 String interest3 = String.valueOf(interestSpinner3.getSelectedItem());
                 StringBuilder interests = new StringBuilder();
 
-                Log.i("interestsstr", interest1);
-                Log.i("intereststtt", noSelection[0]);
-
 
 
                 if (interest1.equalsIgnoreCase(interest2) || interest1.equalsIgnoreCase(interest3) || interest2.equalsIgnoreCase(interest3))
@@ -188,19 +185,19 @@ public class CreateUserActivity extends Activity {
             switch (item.getItemId()) {
 
                 case R.id.profile:
-
-                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
-                    intent.putExtra("userEmail", user);
-                    startActivity(intent);
-                    return true;
                 case R.id.match:
-                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
-                    intent1.putExtra("userEmail", user);
-                    startActivity(intent1);
+                    finish();
+//                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+//                    intent.putExtra("userEmail", user);
+//                    startActivity(intent);
                     return true;
+//                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+//                    intent1.putExtra("userEmail", user);
+//                    startActivity(intent1);
                 case R.id.chat:
                     Intent chatIntent = new Intent(getApplicationContext(), ChatActivity.class);
                     chatIntent.putExtra("userEmail", user);
+                    finish();
                     startActivity(chatIntent);
                     return true;
 
@@ -232,7 +229,7 @@ public class CreateUserActivity extends Activity {
             try {
 
                 //Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                Bitmap bitmap = decodeSampledBitmap(FilePathStr, 800, 700);
+                Bitmap bitmap = decodeSampledBitmap(FilePathStr, 1280, 960);
 
 
                 Intent i = getIntent();
@@ -336,7 +333,7 @@ public class CreateUserActivity extends Activity {
         }
         else
         {
-            return "Books, Dancing, Drinking";
+            return "--Select an item--, --Select an item--, --Select an item--";
         }
     }
 }

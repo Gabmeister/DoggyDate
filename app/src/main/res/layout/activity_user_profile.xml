@@ -34,6 +34,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="411dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:elevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/circular_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,14 +49,14 @@
                 android:id="@+id/profilePicture"
                 android:layout_width="match_parent"
                 android:layout_height="380dp"
-                android:adjustViewBounds="true"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
                 android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/doggydateRed"
+                android:paddingTop="20dp"
 
+                android:paddingBottom="20dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_baseline_add_a_photo_24"
-                android:background="@color/doggydateRed"
                 android:visibility="visible" />
 
             <LinearLayout
@@ -89,12 +90,13 @@
                 android:id="@+id/bioText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:drawableLeft="@drawable/ic_baseline_create_24"
                 android:drawablePadding="10dp"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
                 android:paddingTop="20sp"
-                android:layout_marginRight="10dp"
+                android:text="About Me"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -106,6 +108,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
+                android:text="Location"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -117,6 +120,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
+                android:text="School/College"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -128,6 +132,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="center|left"
                 android:paddingLeft="20sp"
+                android:text="Occupation"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -167,6 +172,104 @@
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="13dp" />
+
+            <ImageView
+                android:id="@+id/dogProfilePicture"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/doggydateRed"
+                android:paddingTop="20dp"
+
+                android:paddingBottom="20dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dogNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#000000"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/dogAgeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Age"
+                    android:textColor="#808080"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dogBreed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_baseline_create_24"
+                android:drawablePadding="10dp"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:paddingTop="20sp"
+                android:text="About This Dog"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/dogBio"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="10dp"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:text="Bio"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/dogSize"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:drawableLeft="@drawable/ic_baseline_exposure_24"
+                android:drawablePadding="10dp"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:text="Size"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/dogTemperament"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:drawableLeft="@drawable/menu_match"
+                android:drawablePadding="10dp"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:text="Temperament"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="13dp" />
+
 
         </LinearLayout>
     </ScrollView>
@@ -185,10 +288,11 @@
 
     <Button
         android:id="@+id/circular_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edit_button_bg"
         android:drawablePadding="10dp"
         android:elevation="10dp"
@@ -199,5 +303,39 @@
 
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_account"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/addDog"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_button_bg"
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:text="add dog"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_account"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/removeDog"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_button_bg"
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:text="clear dog"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_account"
+        app:layout_constraintLeft_toRightOf="@id/addDog" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

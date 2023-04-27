@@ -36,10 +36,10 @@ public class ChatActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.match:
-
-                        Intent intent = new Intent(ChatActivity.this, MainActivity.class);
-                        intent.putExtra("userEmail", email);
-                        startActivity(intent);
+                        finish();
+//                        Intent intent = new Intent(ChatActivity.this, MainActivity.class);
+//                        intent.putExtra("userEmail", email);
+//                        startActivity(intent);
                         return true;
 
                     case R.id.chat:
@@ -50,6 +50,7 @@ public class ChatActivity extends AppCompatActivity {
 
                         Intent profileIntent = new Intent(ChatActivity.this, UserProfileActivity.class);
                         profileIntent.putExtra("userEmail", email);
+                        finish();
                         startActivity(profileIntent);
                         return true;
                 }
